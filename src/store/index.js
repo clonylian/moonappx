@@ -1,0 +1,141 @@
+import { createStore } from "vuex";
+
+const store = createStore({
+  state: {
+    txt: {
+      language: "汉语",
+      Choose: "请选择语言",
+      continue: "继续",
+      cjpassword: "请创建密码,包括以下条件",
+      passwordshow: "展示",
+      inppassword: "密码",
+      cfinppassword: "重复输入密码",
+      passwordnone: "隐藏",
+      passlist: ["8 人物", "大写", "数字", "小写"],
+      policy: "隐私政策",
+      policyend: "滚动到底部",
+      accept: "我接受",
+      terms: "服务条款",
+      forget: "忘记密码",
+      forgetjs: "更改密码后24小时内,您将无法在新设备提款.",
+      setpass: "重设密码",
+      gologin: "返回登录",
+      enteremail: "输入你的电子邮箱地址",
+      emailjc: "请检查您的电子邮箱以获取密码重置链接",
+      connectti: "通过推送通知保持联系!",
+      connectjs:
+        "通过启用推送通知, 您将收到有关您的交易、MoonDrop 的重要更新以及其他重要警报和新闻。",
+      connectbuty: "使能够",
+      connectbutt: "暂时跳过",
+      setemali: "电子邮件",
+      setusername: "用户名",
+      changeemail: "更改电子邮件",
+      changeusername: "更改用户名",
+      changepassword: "更改密码",
+      setyy: "语言",
+      setterms: "条款",
+      setpolicy: "政策",
+      logout: "登出",
+      removename: "删除您的账户",
+      forgetpass: "忘记密码",
+      setfh: "返回",
+    },
+
+    ch: {
+      language: "汉语",
+      Choose: "请选择语言",
+      continue: "继续",
+      cjpassword: "请创建密码,包括以下条件",
+      passwordshow: "展示",
+      inppassword: "密码",
+      cfinppassword: "重复输入密码",
+      passwordnone: "隐藏",
+      passlist: ["8 人物", "大写", "数字", "小写"],
+      policy: "隐私政策",
+      policyend: "滚动到底部",
+      accept: "我接受",
+      terms: "服务条款",
+      forget: "忘记密码",
+      forgetjs: "更改密码后24小时内,您将无法在新设备提款.",
+      setpass: "重设密码",
+      gologin: "返回登录",
+      enteremail: "输入你的电子邮箱地址",
+      emailjc: "请检查您的电子邮箱以获取密码重置链接",
+      connectti: "通过推送通知保持联系!",
+      connectjs:
+        "通过启用推送通知, 您将收到有关您的交易、MoonDrop 的重要更新以及其他重要警报和新闻。",
+      connectbuty: "使能够",
+      connectbutt: "暂时跳过",
+      setemali: "电子邮件",
+      setusername: "用户名",
+      changeemail: "更改电子邮件",
+      changeusername: "更改用户名",
+      changepassword: "更改密码",
+      setyy: "语言",
+      setterms: "条款",
+      setpolicy: "政策",
+      logout: "登出",
+      removename: "删除您的账户",
+      forgetpass: "忘记密码",
+      setfh: "返回",
+    },
+
+    en: {
+      language: "English",
+      Choose: "Please select language",
+      continue: "continue",
+      cjpassword:
+        "Please create a password, including the following conditions",
+      passwordshow: "show",
+      inppassword: "password",
+      cfinppassword: "Repeat password",
+      passwordnone: "hide",
+      passlist: ["8 characters", "capital", "number", "lower case"],
+      policy: "Privacy Policy",
+      policyend: "scroll to bottom",
+      accept: "accept",
+      terms: "Terms of Service",
+      forget: "forget the password",
+      forgetjs:
+        "Within 24 hours after changing your password, you will not be able to withdraw money on the new device.",
+      setpass: "reset Password",
+      gologin: "Return to login",
+      enteremail: "Enter your email address",
+      emailjc: "Please check your email for a password reset link",
+      connectti: "Stay connected with push notifications!",
+      connectjs:
+        "By enabling push notifications, you will receive important updates about your transactions, MoonDrop and other important alerts and news.",
+      connectbuty: "enable",
+      connectbutt: "Skip for now",
+      setemali: "email",
+      setusername: "username",
+      changeemail: "Change email",
+      changeusername: "Change username",
+      changepassword: "Change password",
+      setyy: "language",
+      setterms: "terms",
+      setpolicy: "policy",
+      logout: "Sign out",
+      removename: "Delete your account",
+      forgetpass: "forget the password",
+      setfh: "return",
+    },
+  },
+  mutations: {
+    changeyy(state, str) {
+      console.log(state, str);
+      state.txt = state[str];
+      console.log(state[str]);
+    },
+  },
+  actions: {
+    // incrementAsync({ commit }) {
+    //   setTimeout(() => {
+    //     commit("increment");
+    //   }, 1000);
+    // },
+  },
+  getters: {},
+});
+
+export default store;
