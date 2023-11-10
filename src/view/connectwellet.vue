@@ -30,21 +30,24 @@
         <div class="slides" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
           <div v-for="(item, index) in wallets" :key="index" class="slide">
             <p class="walltes"><b>{{ item.name }}</b></p>
-      <div class="code-wrapper">
-        <div class="code">
-          {{ item.walletAddress.substr(0, 6) + "...." + item.walletAddress.substr(-6) }}
-          <svg style="width: 20px; height: 20px" @click="copyCode" t="1699326134810" class="icont" viewBox="0 0 1024 1024"
-            version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4979" width="16" height="16">
-            <path
-              d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326z m1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-              p-id="4980"></path>
-          </svg>
-        </div>
-      </div>
-            <div class="slid">
-              <img src="https://s1.aigei.com/src/img/png/60/6011fe010efd413d8b7d4767ee0eb25c.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:n3Er5tSo8tBOCPU5ga3QPRGhOUk=" alt="" />
+            <div class="code-wrapper">
+              <div class="code">
+                {{ item.walletAddress.substr(0, 6) + "...." + item.walletAddress.substr(-6) }}
+                <svg style="width: 20px; height: 20px" @click="copyCode" t="1699326134810" class="icont"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4979" width="16"
+                  height="16">
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326z m1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
+                    p-id="4980"></path>
+                </svg>
+              </div>
             </div>
-            <p>{{ index+1}}/{{  walletnum}}</p>
+            <div class="slid">
+              <img
+                src="https://s1.aigei.com/src/img/png/60/6011fe010efd413d8b7d4767ee0eb25c.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:n3Er5tSo8tBOCPU5ga3QPRGhOUk="
+                alt="" />
+            </div>
+            <p>{{ index + 1 }}/{{ walletnum }}</p>
           </div>
         </div>
         <div class="lbt">
@@ -300,16 +303,16 @@
 </template>
 <script setup>
 import Foot from "../components/foot.vue";
-import { ref ,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 import api from '../common/api'
-let wallets=ref([])
-let walletnum=ref(0)
+let wallets = ref([])
+let walletnum = ref(0)
 
 onMounted(() => {
-    api.list().then(res => {
-      wallets.value = res.data.wallets; 
-      walletnum.value=wallets.value.length
-    });
+  api.list().then(res => {
+    wallets.value = res.data.wallets;
+    walletnum.value = wallets.value.length
+  });
 });
 const isOverlayVisible = ref(false);
 
@@ -1019,5 +1022,4 @@ const nextSlide = () => {
   .qhkthree {
     margin-left: 0.5rem;
   }
-}
-</style>
+}</style>

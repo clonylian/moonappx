@@ -15,14 +15,7 @@
           >
             <div @click="changelang('ch')">汉语</div>
             <div @click="changelang('en')">English</div>
-            <div @click="changelang('ch')">汉语</div>
-            <div @click="changelang('en')">English</div>
-            <div @click="changelang('ch')">汉语</div>
-            <div @click="changelang('en')">English</div>
-            <div @click="changelang('ch')">汉语</div>
-            <div @click="changelang('en')">English</div>
-            <div @click="changelang('ch')">汉语</div>
-            <div @click="changelang('en')">English</div>
+
           </div>
         </div>
       </div>

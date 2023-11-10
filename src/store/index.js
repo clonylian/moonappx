@@ -443,7 +443,7 @@ const store = createStore({
       tradetctxtthr: "开始交易",
     },
 
-    txt: {
+    en: {
       language: "English",
       Choose: "Please select language",
       continue: "continue",
