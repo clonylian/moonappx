@@ -13,7 +13,7 @@
             d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
           ></path>
         </svg>
-        <h2>更改密码</h2>
+        <h2>{{ $store.state.txt.changepasstit }}</h2>
       </div>
       <span class="yforgetjs">{{
         settpass == "1" ? $store.state.txt.emailjc : $store.state.txt.forgetjs
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import api from "../common/api";
 export default {
   data() {
     return {
@@ -59,6 +60,9 @@ export default {
       console.log(isValid);
       if (isValid) {
         this.enter = "1";
+        api.sendverify({ email: this.email }).then((res) => {
+          console.log(res);
+        });
       } else {
         this.enter = "0";
       }
@@ -88,7 +92,8 @@ export default {
 }
 .ychangeusertopyti h2 {
   font-weight: 400;
-  margin-left: 27.5%;
+  width: 100%;
+  text-align: center;
 }
 .butnone > button:nth-child(1) {
   display: none !important;

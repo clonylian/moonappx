@@ -3,13 +3,15 @@
     <div class="yremoveutop">
       <div class="yremoveuti flex">
         <span @click="navigateBack()">✕</span>
-        <h2>这将删除您的账户</h2>
+        <h2>{{ $store.state.txt.removeusertit }}</h2>
       </div>
       <img src="../assets/redx.png" alt="" />
-      <router-link class="yremoveuay" to="/language"
-        >是的, 删除我的账户</router-link
-      >
-      <router-link class="yremoveuat" to="/setting">取消</router-link>
+      <a @click="outuser" class="yremoveuay" to="/language">{{
+        $store.state.txt.removeuserbutyi
+      }}</a>
+      <router-link class="yremoveuat" to="/setting">{{
+        $store.state.txt.removeuserbutt
+      }}</router-link>
     </div>
     <img src="../assets/Moontop.png" alt="" />
   </div>
@@ -24,6 +26,10 @@ export default {
     navigateBack() {
       this.$router.go(-1); // 向后导航一步
     },
+    outuser(){
+      localStorage.clear()
+      this.$router.push("/"); // 向后导航一步
+    }
   },
 };
 </script>
@@ -56,7 +62,7 @@ export default {
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-left: 15%;
+  width: 100%;
 }
 .yremoveutop > img {
   display: block;

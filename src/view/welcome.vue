@@ -1,15 +1,29 @@
 <template>
-  <div class="carousel" ref="carousel" @mousedown="startDrag" @mouseup="endDrag">
-    <div v-for="(slide, index) in slides" :key="index" v-show="currentIndexClamped === index" class="carousel-item">
+  <div
+    class="carousel"
+    ref="carousel"
+    @mousedown="startDrag"
+    @mouseup="endDrag"
+  >
+    <div
+      v-for="(slide, index) in slides"
+      :key="index"
+      v-show="currentIndexClamped === index"
+      class="carousel-item"
+    >
       <img :src="slide.src" :alt="'slide' + (index + 1)" />
     </div>
     <div class="carousel-dots">
-      <span v-for="(dot, index) in slideCount" :key="index" :class="{ active: currentIndexClamped === index }"
-        @click="changeSlide(index)"></span>
+      <span
+        v-for="(dot, index) in slideCount"
+        :key="index"
+        :class="{ active: currentIndexClamped === index }"
+        @click="changeSlide(index)"
+      ></span>
     </div>
     <div class="annu">
-      <p @click="login">{{ this.txt }}</p>
-      <p class="annu1" @click="home">{{ this.txts }}</p>
+      <p @click="login">{{ $store.state.txt.welcomebutone }}</p>
+      <p class="annu1" @click="home">{{ $store.state.txt.welcomebuttwo }}</p>
     </div>
   </div>
 </template>
@@ -143,7 +157,7 @@ export default {
   margin: 4rem auto 0;
 }
 
-.annu>p {
+.annu > p {
   display: block;
   text-align: center;
   width: 40%;
@@ -157,7 +171,7 @@ export default {
   cursor: pointer;
 }
 
-.annu>p:nth-child(1):hover {
+.annu > p:nth-child(1):hover {
   background: rgb(245, 245, 245);
 }
 

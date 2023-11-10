@@ -13,25 +13,30 @@
           ></path>
         </svg>
         <p class="head_txt">
-          <b>{{ tjm }}</b>
+          <b>{{ $store.state.txt.recommendtit }}</b>
         </p>
         <p></p>
       </div>
       <div class="cenxd">
         <div class="cen_1">
-          <input class="cen_2" placeholder="推荐码" />
+          <input
+            @click="rommend"
+            class="cen_2"
+            :placeholder="$store.state.txt.recommendplace"
+          />
         </div>
-        <p class="cen_3">{{ tjianm }}</p>
+        <p class="cen_3">{{ $store.state.txt.recommendcon }}</p>
       </div>
       <div class="but">
-        <p>{{ tjiao }}</p>
-        <p @click="golog">{{ tiaog }}</p>
+        <p>{{ $store.state.txt.recommendbutone }}</p>
+        <p @click="golog">{{ $store.state.txt.recommendbuttwo }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import api from "../common/api";
 export default {
   data() {
     return {
@@ -39,9 +44,26 @@ export default {
       tjianm: "获取推荐码并获得25美元的奖励以支付未来的费用",
       tjiao: "提交代码",
       tiaog: "跳过",
+      list: [
+        {
+          id: "11",
+          name: "钱包名称1",
+          walletAddress: "0x1111111111111111111111111111",
+        },
+        {
+          id: "12",
+          name: "钱包名称2",
+          walletAddress: "0x22222222222222278789789",
+        },
+      ],
     };
   },
   methods: {
+    rommend() {
+      this.list = api.recommendation().then((res) => {
+        console.log(res);
+      });
+    },
     gologin() {
       this.$router.push("/username");
     },
@@ -74,7 +96,7 @@ export default {
 }
 
 .head_txt {
-  width: 10rem;
+  width: auto;
   font-size: 20px;
 }
 

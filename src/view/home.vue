@@ -1,7 +1,7 @@
 <template>
   <div class="yhome">
     <div class="yhometop flex jus">
-      <h2 @click="caxios">持仓</h2>
+      <h2 @click="caxios">{{ $store.state.txt.hometit }}</h2>
       <div></div>
       <svg class="yhtwo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path
@@ -10,13 +10,18 @@
         ></path>
       </svg>
       <router-link to="/setting">
-        <img src="../assets/homeset.png" alt="" />
+        <svg  t="1699264352989" class="iconx" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="19102" width="30" height="30">
+            <path
+              d="M991.078 575.465l-101.71 0c-10.154 57.873-33.486 111.084-66.409 157.07l72.873 72.873c12.488 12.488 12.488 32.725 0 45.212l-45.212 45.212c-12.488 12.488-32.725 12.488-45.212 0l-73.186-73.186c-46.069 32.52-98.801 56.3-156.757 66.076l0 102.356c0 17.654-14.316 31.97-31.97 31.97l-63.941 0c-17.654 0-31.97-14.316-31.97-31.97L447.584 888.722c-58.02-9.789-111.346-32.853-157.377-65.456l-72.566 72.566c-12.488 12.488-32.725 12.488-45.212 0l-45.212-45.212c-12.488-12.488-12.488-32.725 0-45.212l72.361-72.361c-32.859-46.031-56.082-99.434-65.897-157.581L31.97 575.466c-17.654 0-31.97-14.316-31.97-31.97l0-63.94c0-17.654 14.316-31.97 31.97-31.97l101.71 0c10.154-57.873 33.486-111.084 66.409-157.07l-72.873-72.873c-12.488-12.488-12.488-32.725 0-45.212l45.212-45.212c12.488-12.488 32.725-12.488 45.212 0l73.186 73.186c46.069-32.52 98.801-56.3 156.757-66.076L447.583 31.97C447.584 14.316 461.9 0 479.554 0l63.941 0c17.654 0 31.97 14.316 31.97 31.97l0 102.356c58.02 9.789 111.346 32.853 157.377 65.456l72.566-72.566c12.488-12.488 32.725-12.488 45.212 0l45.212 45.212c12.488 12.488 12.488 32.725 0 45.212l-72.362 72.361c32.859 46.031 56.082 99.434 65.897 157.581l101.71 0c17.654 0 31.97 14.316 31.97 31.97l0 63.94C1023.048 561.148 1008.732 575.465 991.078 575.465zM511.524 255.762c-141.251 0-255.762 114.511-255.762 255.762s114.511 255.762 255.762 255.762 255.762-114.511 255.762-255.762S652.775 255.762 511.524 255.762z"
+              fill="#2c2c2c" p-id="19103"></path>
+          </svg>
       </router-link>
     </div>
     <div class="cen_one">
       <div class="cen_two">
         <div class="cen_four">
-          <p class="cen_three">持仓</p>
+          <p class="cen_three">{{ $store.state.txt.hometit }}</p>
           <div class="cen_five">
             <svg
               style="width: 20px; height: 20px"
@@ -31,12 +36,14 @@
             <router-link
               :to="{ path: '/home', hash: '#butcode' }"
               style="color: white; font-size: 12px"
-              >查看交易</router-link
+              >{{ $store.state.txt.homeck }}</router-link
             >
           </div>
         </div>
         <h2 class="cen_six">$0.00</h2>
-        <p class="cen_seve"><span>$0.00(-)</span>过去24小时</p>
+        <p class="cen_seve">
+          <span>$0.00(-)</span>{{ $store.state.txt.hometime }}
+        </p>
         <div class="qhk">
           <div v-show="activeTab === 'tab1'">
             <div class="qhkone"></div>
@@ -61,7 +68,7 @@
               @click="changeTab('tab1')"
               :class="{ active: activeTab === 'tab1' }"
             >
-              一维
+              {{ $store.state.txt.hometaby }}
             </div>
             <div
               @click="changeTab('tab2')"
@@ -85,12 +92,12 @@
               @click="changeTab('tab5')"
               :class="{ active: activeTab === 'tab5' }"
             >
-              一年
+              {{ $store.state.txt.hometabw }}
             </div>
           </div>
           <div class="qhkthree"></div>
           <div class="qhkfour">
-            <p>购买力</p>
+            <p>{{ $store.state.txt.homepower }}</p>
             <router-link to="/trade" style="color: white">
               <p class="qhkfive">
                 ￥0.00
@@ -106,7 +113,7 @@
         </div>
       </div>
       <div class="kais" id="one">
-        <p>开始使用</p>
+        <p>{{ $store.state.txt.welcomebuttwo }}</p>
         <div class="kais_one">
           <router-link to="/trade" style="color: black">
             <div
@@ -121,7 +128,7 @@
               <div class="kais_two">
                 <img src="../assets/2.png" />
               </div>
-              <p style="margin-top: 0.5rem">交易</p>
+              <p style="margin-top: 0.5rem">{{ $store.state.txt.homefory }}</p>
             </div>
           </router-link>
           <router-link to="/attack" style="color: black">
@@ -131,7 +138,7 @@
               <div class="kais_two">
                 <img src="../assets/1.png" />
               </div>
-              <p style="margin-top: 0.5rem">攻击</p>
+              <p style="margin-top: 0.5rem">{{ $store.state.txt.homefort }}</p>
             </div>
           </router-link>
           <router-link to="/earn" style="color: black">
@@ -141,7 +148,9 @@
               <div class="kais_two">
                 <img src="../assets/4.png" />
               </div>
-              <p style="margin-top: 0.5rem">预售</p>
+              <p style="margin-top: 0.5rem">
+                {{ $store.state.txt.homeforthr }}
+              </p>
             </div>
           </router-link>
           <router-link to="" style="color: black">
@@ -151,7 +160,7 @@
               <div class="kais_two">
                 <img src="../assets/5.png" />
               </div>
-              <p style="margin-top: 0.5rem">自动DCA</p>
+              <p style="margin-top: 0.5rem">{{ $store.state.txt.homeforf }}</p>
             </div>
           </router-link>
           <router-link to="" style="color: black">
@@ -161,7 +170,7 @@
               <div class="kais_two">
                 <img src="../assets/6.png" />
               </div>
-              <p style="margin-top: 0.5rem">期权</p>
+              <p style="margin-top: 0.5rem">{{ $store.state.txt.homeforw }}</p>
             </div>
           </router-link>
           <router-link to="/connectwellet" style="color: black">
@@ -171,15 +180,17 @@
               <div class="kais_two">
                 <img src="../assets/3.png" />
               </div>
-              <p style="margin-top: 0.5rem">钱包</p>
+              <p style="margin-top: 0.5rem">
+                {{ $store.state.txt.homeforsix }}
+              </p>
             </div>
           </router-link>
         </div>
         <div id="butcode" class="butcode">
-          <p>活跃交易</p>
+          <p>{{ $store.state.txt.homethrti }}</p>
           <div class="buts">
             <div @click="clickbuts('1')" class="but_1">
-              <p>种类</p>
+              <p>{{ $store.state.txt.homethrtype }}</p>
               <svg
                 style="width: 16px; height: 16px"
                 xmlns="http://www.w3.org/2000/svg"
@@ -196,12 +207,16 @@
                 class="butt"
                 style="padding: 0 0 0.25rem"
               >
-                利润
+                {{ $store.state.txt.homethrtypey }}
               </div>
-              <div @click="clickbuts('1')" class="butt">损失</div>
-              <div @click="clickbuts('1')" class="butt">头寸</div>
+              <div @click="clickbuts('1')" class="butt">
+                {{ $store.state.txt.homethrtypet }}
+              </div>
+              <div @click="clickbuts('1')" class="butt">
+                {{ $store.state.txt.homethrtypethr }}
+              </div>
               <div @click="clickbuts('1')" style="padding: 0.25rem 0 0">
-                日期
+                {{ $store.state.txt.homethrtypef }}
               </div>
             </div>
           </div>
@@ -215,18 +230,18 @@
 <script setup>
 import Foot from "../components/foot.vue";
 import { ref } from "vue";
-import api from '../common/api'
+import api from "../common/api";
 let flsclick = ref("0");
 const activeTab = ref("tab1");
 
 const changeTab = (tab) => {
   activeTab.value = tab;
 };
-let caxios=()=>{
-  api.list().then(res=>{
-    console.log(res)
-  })
-}
+let caxios = () => {
+  api.list().then((res) => {
+    console.log(res);
+  });
+};
 let clickbuts = (str) => {
   if (str == flsclick.value) {
     flsclick.value = "0";
@@ -287,7 +302,7 @@ let clickbuts = (str) => {
 }
 
 .yhometop div {
-  width: 60%;
+  width: 50%;
   height: 0.125rem;
   background: rgb(109, 110, 112);
 }
@@ -336,7 +351,7 @@ let clickbuts = (str) => {
 }
 
 .cen_five {
-  width: 6rem;
+  width: auto;
   /* height: 2rem; */
   display: flex;
   margin-top: 1rem;
@@ -460,6 +475,8 @@ let clickbuts = (str) => {
 
 .kais_one a {
   width: 32%;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .kais_two {

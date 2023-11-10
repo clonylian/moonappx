@@ -13,15 +13,15 @@
             d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
           ></path>
         </svg>
-        <h2>更改电子邮件</h2>
+        <h2>{{ $store.state.txt.changeemail }}</h2>
       </div>
-      <span>更改电子邮件地址后 24 小时内, 您将无法使用新设备提取资金。</span>
+      <span>{{ $store.state.txt.changeemailcon }}</span>
       <div class="ychangeyxbox">
         <input
           class="ychangebinp"
           v-model="changeyx"
           :type="ychangepass == '0' ? 'text' : 'text'"
-          placeholder="输入新的电子邮件地址"
+          :placeholder="$store.state.txt.changeemailplacey"
         />
       </div>
 
@@ -31,7 +31,7 @@
           v-model="changepass"
           @input="sxinput()"
           :type="ychangepass == '1' ? 'text' : 'password'"
-          placeholder="输入您的密码"
+          :placeholder="$store.state.txt.changeemailplacet"
         />
         <span
           :class="ychangepass == '1' ? 'ychangeyxnone' : 'ychangeyxshow'"
@@ -93,7 +93,8 @@ export default {
 }
 .ychangeyxtopti h2 {
   font-weight: 400;
-  margin-left: 19.5%;
+  width: 100%;
+  text-align: center;
 }
 .ychangeyxshow {
   display: block;

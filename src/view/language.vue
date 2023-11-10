@@ -30,7 +30,7 @@
     <router-link class="ylanguagejx" to="/welcome">{{
       store.state.txt.continue
     }}</router-link>
-    <button class="ylanguagejx" @click="twitterlog()">推特登录</button>
+    <!-- <button class="ylanguagejx" @click="twitterlog()">推特登录</button> -->
   </div>
 </template>
 

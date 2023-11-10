@@ -14,7 +14,7 @@
               d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
             ></path>
           </svg>
-          <h2>更改电子邮件</h2>
+          <h2>{{ $store.state.txt.changeusertity }}</h2>
         </div>
         <div class="ychangeuserbox">
           <input
@@ -22,7 +22,7 @@
             v-model="changeuserpasstxt"
             :type="changeuser == '0' ? 'password' : 'text'"
             @input="yzemail()"
-            placeholder="输入你的邮箱"
+            :placeholder="$store.state.txt.changeuserplacey"
           />
           <span
             :class="changeuser == '1' ? 'ychangeunnone' : 'ychangeunshow'"
@@ -64,7 +64,7 @@
               d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
             ></path>
           </svg>
-          <h2>更改电子邮件</h2>
+          <h2>{{ $store.state.txt.changeusertity }}</h2>
         </div>
         <div class="ychangeuserbox">
           <input
@@ -73,10 +73,10 @@
             @input="ynewuser()"
             style="width: 100%"
             :type="changeuser == '0' ? 'text' : 'text'"
-            placeholder="输入新的用户名"
+            :placeholder="$store.state.txt.changeuserplacet"
           />
         </div>
-        <span>用户名应介于 4 至 22 个字符之间, 仅由英文字母和数字组成</span>
+        <span>{{ $store.state.txt.changeusercon }}</span>
       </div>
 
       <div class="ynewuserbut">
@@ -146,7 +146,8 @@ export default {
 }
 .ychangeusertopyti h2 {
   font-weight: 400;
-  margin-left: 19.5%;
+  width: 100%;
+  text-align: center;
 }
 .ychangeusershow {
   display: flex !important;

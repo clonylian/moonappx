@@ -725,7 +725,7 @@ export default {
 
       const scrollContent = scrollArea.scrollHeight - scrollArea.clientHeight;
       console.log(scrollArea, scrollContent, scrollArea.scrollTop);
-      if (Math.ceil(scrollArea.scrollTop) == scrollContent) {
+      if (Math.floor(scrollArea.scrollTop) == scrollContent) {
         this.gobot = "1";
         console.log("到底了");
       } else {

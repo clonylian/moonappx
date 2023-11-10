@@ -6,21 +6,21 @@
           @click="choosetrade('0')"
           :class="tradesj == '0' ? 'activetr' : ''"
         >
-          市场
+          {{ $store.state.txt.tradey }}
         </div>
         <span></span>
         <div
           @click="choosetrade('1')"
           :class="tradesj == '1' ? 'activetr' : ''"
         >
-          交易
+          {{ $store.state.txt.tradet }}
         </div>
         <span></span>
         <div
           @click="choosetrade('2')"
           :class="tradesj == '2' ? 'activetr' : ''"
         >
-          指数
+          {{ $store.state.txt.tradethr }}
         </div>
         <span></span>
       </div>
@@ -35,20 +35,20 @@
             type="text"
             @input="sousdaib()"
             v-model="tradethrinput"
-            placeholder="搜索代币"
+            :placeholder="$store.state.txt.tradeplace"
           />
-          <span>粘贴</span>
+          <span>{{ $store.state.txt.tradeinptxt }}</span>
         </div>
         <div class="ytradecions">
           <div class="ytradecioney flex">
             <span>☆</span>
-            <span>全部</span>
+            <span>{{ $store.state.txt.tradetoptxt }}</span>
           </div>
           <div class="ytradecionx"></div>
           <div class="ytradecionss flex">
-            <span>名称/市值</span>
-            <span class="ytradeclant">价格/数量</span>
-            <span @click="changetime('7天变化')" class="ytradeclans">{{
+            <span>{{ $store.state.txt.tradeinptopy }}</span>
+            <span class="ytradeclant">{{ $store.state.txt.tradeinptopt }}</span>
+            <span @click="changetime('7days change')" class="ytradeclans">{{
               tradecl
             }}</span>
           </div>
@@ -75,7 +75,7 @@
           </div>
         </div>
         <router-link to="/earn" class="ytradebot flex">
-          <h3>给朋友25美元</h3>
+          <h3>{{ $store.state.txt.givemoney }}</h3>
           <img src="../assets/tradejb.png" alt="" />
           <!-- <span @click="onmygb('1')">✕</span> -->
         </router-link>
@@ -85,17 +85,17 @@
           <span
             @click="changetradeac('0')"
             :class="tradeactive == '0' ? 'ytradebtbuyactive' : ''"
-            >交换</span
+            >{{ $store.state.txt.tradetabty }}</span
           >
           <span
             @click="changetradeac('1')"
             :class="tradeactive == '1' ? 'ytradebtbuyactive' : ''"
-            >限价订单</span
+            >{{ $store.state.txt.tradeethbutt }}</span
           >
         </div>
         <div :class="tradeactive == '0' ? 'ytradeboxty' : 'ytradenone'">
           <div class="ytradeboxtytop flex jus">
-            <span>使用。。。支付</span>
+            <span>{{ $store.state.txt.tradetabtwoy }}</span>
             <img @click="chooseset('1')" src="../assets/homeset.png" alt="" />
           </div>
           <div class="ytradeboxtytwo">
@@ -107,7 +107,7 @@
                     ? 'ytradeeth ytradeimgqh flex'
                     : 'ytradeeth flex'
                 "
-                @click="choosedbs('1')"
+                @click="choosedbs('1', 'exchange')"
               >
                 <span>{{ tradejyjhy.name }}</span>
                 <img src="../assets/eth.png" alt="" />
@@ -116,17 +116,19 @@
             <div class="ytradeboxytwobot flex jus">
               <div class="ytradeboxtytwofboty flex">
                 ≈ $<span>{{ tradebyt }}</span>
-                <span @click="tradeqc()">清除</span>
+                <span @click="tradeqc()">{{
+                  $store.state.txt.tradetabtwoqc
+                }}</span>
               </div>
               <div class="ytradebtbright flex">
-                <span>余额</span>
+                <span>{{ $store.state.txt.tradetabtwoye }}</span>
                 <span>0</span>
-                <div>最大限度</div>
+                <div>{{ $store.state.txt.teadetabtwoxd }}</div>
               </div>
             </div>
           </div>
           <div class="ytradeboxtythr flex">
-            <span>收到</span>
+            <span>{{ $store.state.txt.tradetabtwosd }}</span>
             <img @click="jianhuany('1')" src="../assets/jyqh.png" alt="" />
           </div>
           <div class="ytradeboxtytwof">
@@ -138,7 +140,7 @@
                     ? 'ytradeeth ytradeimgqht flex'
                     : 'ytradeeth flex'
                 "
-                @click="choosedbs('1')"
+                @click="choosedbs('1', 'exchange')"
               >
                 <span>{{ tradejyjht.name }}</span>
                 <img src="../assets/usdt.png" alt="" />
@@ -148,22 +150,26 @@
               <span class="ytradeboxtytwofboty"
                 >≈ $<span>{{ tradebyt }}</span></span
               >
-              <span class="ytradeboxtytwofbott">余额 <span>0</span></span>
+              <span class="ytradeboxtytwofbott"
+                >{{ $store.state.txt.tradetabtwoye }} <span>0</span></span
+              >
             </div>
           </div>
-          <button class="ytradebutjh">🚀 交换</button>
+          <button class="ytradebutjh">
+            🚀 {{ $store.state.txt.tradetabty }}
+          </button>
         </div>
         <div :class="tradeactive == '1' ? 'ytradeboxtt' : 'ytradenone'">
           <div class="ytradebbuy flex jus">
             <span
               @click="changetradebuy('0')"
               :class="tradebuyactive == '0' ? 'ytradebbuyactive' : ''"
-              >买</span
+              >{{ $store.state.txt.tradetabtwoty }}</span
             >
             <span
               @click="changetradebuy('1')"
               :class="tradebuyactive == '1' ? 'ytradebbuyactivered' : ''"
-              >卖</span
+              >{{ $store.state.txt.tradetabtwott }}</span
             >
           </div>
           <div :class="tradebuyactive == '0' ? '' : 'ytradebcontnone'">
@@ -178,8 +184,11 @@
                 >
                   <img src="../assets/weth.png" alt="" />
                   <div class="ytradecyt">
-                    <span>买</span>
-                    <div @click="choosedbs('1')" class="ytradecbiy flex">
+                    <span>{{ $store.state.txt.tradetabtwoty }}</span>
+                    <div
+                      @click="choosedbs('1', 'order')"
+                      class="ytradecbiy flex"
+                    >
                       <h2>{{ tradexjddty.name }}</h2>
                       <div>⬇</div>
                     </div>
@@ -200,8 +209,11 @@
                 >
                   <img src="../assets/usdt.png" alt="" />
                   <div class="ytradecyt">
-                    <span>支付</span>
-                    <div @click="choosedbs('1')" class="ytradecbiy flex">
+                    <span>{{ $store.state.txt.tradetabtwozf }}</span>
+                    <div
+                      @click="choosedbs('1', 'order')"
+                      class="ytradecbiy flex"
+                    >
                       <h2>{{ tradexjddtt.name }}</h2>
                       <div>⬇</div>
                     </div>
@@ -209,18 +221,26 @@
                 </div>
               </div>
               <div class="ytradebconttxt flex jus">
-                <span>按此价格购买</span>
+                <span>{{ $store.state.txt.tradetabtwoinpy }}</span>
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddtt.name }}</h2>
               </div>
-              <div class="ytradebconthr">市场价： 1 WETH = 1796 USDT</div>
+              <div class="ytradebconthr">
+                {{ $store.state.txt.tradetabtwopy }}
+              </div>
               <div class="ytradebconttxt flex jus">
-                <span>{{ tradexjddty.name }}的数量</span>
-                <input type="text" placeholder="0.0" />
+                <span
+                  >{{ tradexjddty.name }}
+                  {{ $store.state.txt.tradetabtwoinpt }}</span
+                >
+                <input style="width: 50%" type="text" placeholder="0.0" />
                 <h2>{{ tradexjddty.name }}</h2>
               </div>
               <div class="ytradebconttxt ytradebczltxt flex jus">
-                <span>{{ tradexjddtt.name }} 总量</span>
+                <span
+                  >{{ tradexjddtt.name }}
+                  {{ $store.state.txt.tradetabtwoinpthr }}</span
+                >
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddtt.name }}</h2>
               </div>
@@ -230,7 +250,7 @@
                     :class="duot == '1' ? 'ytradebcthrshow' : 'ytradebcthrnone'"
                   ></div>
                 </div>
-                设定交易策略 （止盈/止损）
+                {{ $store.state.txt.tradetabtwopt }}
               </div>
               <div
                 :class="
@@ -239,7 +259,7 @@
                     : 'ytradebconttxt ytradebcsytxt  flex jus'
                 "
               >
-                <span>从中受益</span>
+                <span>{{ $store.state.txt.tradetabtwoinpf }}</span>
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddtt.name }}</h2>
               </div>
@@ -250,16 +270,18 @@
                     : 'ytradebconttxt ytradebctxt flex jus'
                 "
               >
-                <span>止损</span>
+                <span>{{ $store.state.txt.tradetabtwoinpw }}</span>
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddtt.name }}</h2>
               </div>
               <div class="ytradebconttxt flex jus">
-                <span>订单失效期为</span>
-                <h2>1 天</h2>
+                <span>{{ $store.state.txt.tradetabtwoinpsix }}</span>
+                <h2>1 day</h2>
               </div>
             </div>
-            <button class="ytradejxjy">进行交易</button>
+            <button class="ytradejxjy">
+              {{ $store.state.txt.tradetabtwobut }}
+            </button>
           </div>
           <div :class="tradebuyactive == '1' ? '' : 'ytradebcontnone'">
             <div class="ytradebcont">
@@ -273,8 +295,11 @@
                 >
                   <img src="../assets/weth.png" alt="" />
                   <div class="ytradecyt">
-                    <span>收到</span>
-                    <div @click="choosedbs('1')" class="ytradecbiy flex">
+                    <span>{{ $store.state.txt.tradetabtwosd }}</span>
+                    <div
+                      @click="choosedbs('1', 'order')"
+                      class="ytradecbiy flex"
+                    >
                       <h2>{{ tradexjddy.name }}</h2>
                       <div>⬇</div>
                     </div>
@@ -295,8 +320,11 @@
                 >
                   <img src="../assets/usdt.png" alt="" />
                   <div class="ytradecyt">
-                    <span>卖</span>
-                    <div @click="choosedbs('1')" class="ytradecbiy flex">
+                    <span>{{ $store.state.txt.tradetabtwott }}</span>
+                    <div
+                      @click="choosedbs('1', 'order')"
+                      class="ytradecbiy flex"
+                    >
                       <h2>{{ tradexjddt.name }}</h2>
                       <div>⬇</div>
                     </div>
@@ -304,18 +332,26 @@
                 </div>
               </div>
               <div class="ytradebconttxt flex jus">
-                <span>按此价格购买</span>
+                <span>{{ $store.state.txt.tradetabtwoinpy }}</span>
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddt.name }}</h2>
               </div>
-              <div class="ytradebconthr">市场价： 1 WETH = 1796 USDT</div>
+              <div class="ytradebconthr">
+                {{ $store.state.txt.tradetabtwopy }}
+              </div>
               <div class="ytradebconttxt flex jus">
-                <span>{{ tradexjddy.name }}的数量</span>
+                <span
+                  >{{ tradexjddy.name }}
+                  {{ $store.state.txt.tradetabtwoinpt }}</span
+                >
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddy.name }}</h2>
               </div>
               <div class="ytradebconttxt ytradebczltxt flex jus">
-                <span>{{ tradexjddt.name }} 总量</span>
+                <span
+                  >{{ tradexjddt.name }}
+                  {{ $store.state.txt.tradetabtwoinpthr }}</span
+                >
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddt.name }}</h2>
               </div>
@@ -327,7 +363,7 @@
                     "
                   ></div>
                 </div>
-                设定交易策略 （止盈/止损）
+                {{ $store.state.txt.tradetabtwopt }}
               </div>
               <div
                 :class="
@@ -336,16 +372,18 @@
                     : 'ytradebconttxt ytradebctxt flex jus'
                 "
               >
-                <span>止损</span>
+                <span>{{ $store.state.txt.tradetabtwoinpw }}</span>
                 <input type="text" placeholder="0.0" />
                 <h2>{{ tradexjddt.name }}</h2>
               </div>
               <div class="ytradebconttxt flex jus">
-                <span>订单失效期为</span>
-                <h2>1 天</h2>
+                <span>{{ $store.state.txt.tradetabtwoinpsix }}</span>
+                <h2>1 day</h2>
               </div>
             </div>
-            <button class="ytradejxjy">进行交易</button>
+            <button class="ytradejxjy">
+              {{ $store.state.txt.tradetabtwobut }}
+            </button>
           </div>
         </div>
       </div>
@@ -354,7 +392,7 @@
       >
         <div class="ytradebcon">
           <img src="../assets/Moon.png" alt="" />
-          <h2>即将推出</h2>
+          <h2>{{ $store.state.txt.tradetabthrtxt }}</h2>
         </div>
       </div>
     </div>
@@ -390,7 +428,7 @@
           <span
             @click="choosetratab('0')"
             :class="tradecontab == '0' ? 'ytradetabactive' : ''"
-            >一唯</span
+            >{{ $store.state.txt.hometaby }}</span
           >
           <span
             @click="choosetratab('1')"
@@ -410,35 +448,39 @@
           <span
             @click="choosetratab('4')"
             :class="tradecontab == '4' ? 'ytradetabactive' : ''"
-            >1年</span
+            >{{ $store.state.txt.hometabw }}</span
           >
         </div>
         <div class="ytradecontti">
-          <h2>表现</h2>
+          <h2>Performance</h2>
           <div></div>
         </div>
         <div class="ytradecontbox flex">
           <div class="ytradecontboxy">
-            <span>24小时高</span>
+            <span>24h high</span>
             <div>$1839</div>
           </div>
           <div class="ytradecontboxy">
-            <span>24小时成交量</span>
+            <span>24h trading volume</span>
             <div>$122亿</div>
           </div>
           <div class="ytradecontboxy">
-            <span>24小时低</span>
+            <span>24h low</span>
             <div>$1782</div>
           </div>
           <div class="ytradecontboxy">
-            <span>市值</span>
+            <span> Market value</span>
             <div>$2203亿 <span>+40.4亿</span></div>
           </div>
         </div>
       </div>
       <div class="ytradeconbuts flex jus">
-        <button class="ytradegojh" @click="gojh()">去交换</button>
-        <button class="ytradegoxjdd" @click="goxjdd()">限价订单</button>
+        <button class="ytradegojh" @click="gojh()">
+          {{ $store.state.txt.tradeethbuty }}
+        </button>
+        <button class="ytradegoxjdd" @click="goxjdd()">
+          {{ $store.state.txt.tradeethbutt }}
+        </button>
       </div>
     </div>
     <div
@@ -458,9 +500,9 @@
           type="text"
           @input="sousdaib()"
           v-model="tradethrinput"
-          placeholder="搜索代币"
+          :placeholder="$store.state.txt.tradeplace"
         />
-        <span>粘贴</span>
+        <span>{{ $store.state.txt.tradeinptxt }}</span>
         <div @click="sousdaib('0')">✕</div>
       </div>
       <div class="ytradeblist">
@@ -482,19 +524,27 @@
     >
       <div class="ytradefourboxy">
         <span class="ytradefourgb" @click="choosedbs('0')">✕</span>
-        <h2>选择代币</h2>
+        <h2>{{ $store.state.txt.tradetctit }}</h2>
         <div class="ytradefourssbox flex">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
             ></path>
           </svg>
-          <input type="text" placeholder="搜素代币或粘贴代币地址" />
+          <input type="text" :placeholder="$store.state.txt.tradetctxty" />
         </div>
         <div class="ytradefourxian"></div>
+        <div
+          v-for="(item, index) in yorders"
+          :key="index"
+          class="yorderlist flex jus"
+        >
+          <span>{{ item.symbol }}</span>
+          <span>${{ item.price }}</span>
+        </div>
         <div class="ytradefourfont flex">
-          <router-link to="">存入代币</router-link>
-          <span>开始交易</span>
+          <router-link to="">{{ $store.state.txt.tradetctxtt }}</router-link>
+          <span>{{ $store.state.txt.tradetctxtthr }}</span>
         </div>
       </div>
     </div>
@@ -526,6 +576,7 @@
 </template>
 
 <script setup>
+import api from "../common/api";
 import { ref } from "vue";
 import Foot from "../components/foot.vue";
 let tradesj = ref("0");
@@ -552,6 +603,7 @@ let tradexjddt = ref({ name: "USDT" });
 
 let tradexjddty = ref({ name: "WETH" });
 let tradexjddtt = ref({ name: "USDT" });
+let yorders = ref([]);
 let sousjson = ref([
   { name: "Ethereum", bname: "ETH", price: "$1872" },
   {
@@ -576,7 +628,7 @@ let scjosn = ref([
     percentage: "-0.1%",
   },
 ]);
-let tradecl = ref("7天变化");
+let tradecl = ref("7days change");
 let choosetrade = (str) => {
   tradesj.value = str;
 };
@@ -592,9 +644,9 @@ let jianhuanthr = (str) => {
 };
 let changetime = (str) => {
   if (str == tradecl.value) {
-    tradecl.value = "24小时变化";
+    tradecl.value = "24h change";
   } else {
-    tradecl.value = "7天变化";
+    tradecl.value = "7days change";
   }
 };
 let jianhuant = (str) => {
@@ -640,8 +692,17 @@ let sousdaib = (str) => {
 let choosetratab = (str) => {
   tradecontab.value = str;
 };
-let choosedbs = (str) => {
+let choosedbs = (str, type) => {
   tradefour.value = str;
+  if (str == "1" && type == "order") {
+    api.limitorderslist().then((res) => {
+      yorders.value = res.data.data.orders;
+    });
+  } else if (str == "1" && type == "exchange") {
+    api.tradelist().then((res) => {
+      yorders.value = res.data.data.trades;
+    });
+  }
 };
 let chooseset = (str) => {
   tradefive.value = str;
@@ -689,6 +750,19 @@ let changetradebuy = (str) => {
 </script>
 
 <style scoped>
+.yorderlist {
+  width: 80%;
+  align-items: center;
+  margin: 1rem auto;
+}
+.yorderlist > span:nth-child(1) {
+  font-size: 1rem;
+  font-weight: 550;
+}
+.yorderlist > span:nth-child(2) {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
 .ytradeenimgs img {
   content: url("../assets/usdt.png");
 }
@@ -849,7 +923,7 @@ let changetradebuy = (str) => {
   height: 1.5rem;
 }
 .ytradess > input {
-  width: 80%;
+  width: 77.5%;
   border: none;
   outline: none;
   font-size: 1rem;
@@ -887,12 +961,15 @@ let changetradebuy = (str) => {
   color: rgb(177, 177, 177);
 }
 .ytradeclant {
-  margin-left: 7.5rem;
+  margin-left: 5rem;
 }
 .ytradeclans {
+  width: 5.25rem;
+  display: block;
   color: rgb(130, 137, 232);
   text-decoration: underline;
   cursor: pointer;
+  text-align: right;
 }
 .ytradeboxs {
   width: 100%;
@@ -1025,6 +1102,7 @@ let changetradebuy = (str) => {
   color: black;
   text-align: right;
   font-weight: 600;
+  width: 45% !important;
 }
 .ytradebconttxt > input::placeholder {
   color: rgb(177, 177, 177);

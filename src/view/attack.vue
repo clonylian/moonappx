@@ -1,7 +1,7 @@
 <template>
   <div class="yattack">
     <div class="yattacktop flex">
-      <h2>攻击贸易</h2>
+      <h2>{{ $store.state.txt.attacktit }}</h2>
       <div></div>
     </div>
     <div class="yattacktab flex jus">
@@ -9,13 +9,13 @@
         :class="attacktab == '0' ? 'attackactive' : ''"
         @click="changeack('0')"
       >
-        三明治
+        {{ $store.state.txt.attacktaby }}
       </div>
       <div
         :class="attacktab == '1' ? 'attackactive' : ''"
         @click="changeack('1')"
       >
-        狙击DEX LP
+        {{ $store.state.txt.attacktabt }}
       </div>
     </div>
     <div :class="attacktab == '0' ? 'attackshow' : 'attacknone'">
@@ -24,40 +24,44 @@
           @click="changetabcon('0')"
           :class="attacktabt == '0' ? 'attactive' : ''"
         >
-          代币
+          {{ $store.state.txt.attackonetaby }}
         </div>
         <span></span>
         <div
           @click="changetabcon('1')"
           :class="attacktabt == '1' ? 'attactive' : ''"
         >
-          职位
+          {{ $store.state.txt.attackonetabt }}
         </div>
         <span></span>
         <div
           @click="changetabcon('2')"
           :class="attacktabt == '2' ? 'attactive' : ''"
         >
-          历史
+          {{ $store.state.txt.attackonetabthr }}
         </div>
       </div>
       <div class="attackxian"></div>
       <div :class="attacktabt == '0' ? 'attacktabcon' : 'attacktabnone'">
         <img src="../assets/Moon-removebg-preview.png" alt="" />
-        <div class="atttxt">存入代码以开始夹心交易</div>
+        <div class="atttxt">{{ $store.state.txt.attackoneyabytxt }}</div>
       </div>
       <div :class="attacktabt == '1' ? 'attacktabcon' : 'attacktabnone'">
         <img src="../assets/Moon-removebg-preview.png" alt="" />
         <div class="atttxt">
-          <div>你没有活跃中的三明治交易</div>
-          <div @click="changetabcon('0')">选择一个代币开始攻击。></div>
+          <div>{{ $store.state.txt.attackoneyabttxt }}</div>
+          <div @click="changetabcon('0')">
+            {{ $store.state.txt.attackoneyabtatxt }}
+          </div>
         </div>
       </div>
       <div :class="attacktabt == '2' ? 'attacktabcon' : 'attacktabnone'">
         <img src="../assets/Moon-removebg-preview.png" alt="" />
         <div class="atttxt">
-          <div>你没有任何三明治历史</div>
-          <div @click="changetabcon('0')">开始夹心></div>
+          <div>{{ $store.state.txt.attackoneyabthrtxt }}</div>
+          <div @click="changetabcon('0')">
+            {{ $store.state.txt.attackoneyabthratxt }}
+          </div>
         </div>
       </div>
     </div>
@@ -67,21 +71,21 @@
           @click="changetabconf('0')"
           :class="attacktabf == '0' ? 'attactive' : ''"
         >
-          设置
+          {{ $store.state.txt.attacktwotaby }}
         </div>
         <span></span>
         <div
           @click="changetabconf('1')"
           :class="attacktabf == '1' ? 'attactive' : ''"
         >
-          职位
+          {{ $store.state.txt.attackonetabt }}
         </div>
         <span></span>
         <div
           @click="changetabconf('2')"
           :class="attacktabf == '2' ? 'attactive' : ''"
         >
-          历史
+          {{ $store.state.txt.attackonetabthr }}
         </div>
       </div>
       <div class="attackxian"></div>
@@ -91,13 +95,13 @@
             @click="changetabconfsix('0')"
             :class="attacktabsix == '0' ? 'attackactive' : ''"
           >
-            自定义令牌
+            {{ $store.state.txt.attacktwobuty }}
           </div>
           <div
             @click="changetabconfsix('1')"
             :class="attacktabsix == '1' ? 'attackactive' : ''"
           >
-            狙击全部
+            {{ $store.state.txt.attacktwobutt }}
           </div>
         </div>
         <div :class="attacktabsix == '0' ? 'attacktabliu' : 'attacktabliunone'">
@@ -112,8 +116,8 @@
                 d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
               ></path>
             </svg>
-            <input type="text" placeholder="搜素令牌" />
-            <span>粘贴</span>
+            <input type="text" :placeholder="$store.state.txt.attavktwoinpy" />
+            <span>{{ $store.state.txt.attavktwoinpt }}</span>
           </div>
         </div>
         <div :class="attacktabsix == '1' ? 'attacktabliu' : 'attacktabliunone'">
@@ -129,9 +133,9 @@
             </div>
             <div class="yattacktlright flex jus">
               <div class="yattacktllefty flex">
-                <span>余额:</span>
+                <span>{{ $store.state.txt.tradetabtwoye }}:</span>
                 <span>0</span>
-                <div>最大限度</div>
+                <div>{{ $store.state.txt.teadetabtwoxd }}</div>
               </div>
               <div class="yattacktlrightt flex">
                 <span>≈</span>
@@ -141,7 +145,7 @@
           </div>
           <div class="attackxian"></div>
           <div class="yattacktlt">
-            <span>单次狙击需要使用多少代币</span>
+            <span>{{ $store.state.txt.attacktwoinpp }}</span>
             <div class="yattacktltwobox flex jus">
               <span>ETH</span>
               <input type="text" placeholder="0.0" />
@@ -150,7 +154,7 @@
           <div class="attackxian"></div>
           <div :class="attackinpthr == '0' ? 'attacktls' : 'attacktlsblack'">
             <div @click="changeackinps('1')" class="attacktlsy flex jus">
-              <div>区块延迟</div>
+              <div>{{ $store.state.txt.attacktwoinpt }}</div>
               <div>{{ attackinps }}</div>
             </div>
             <div
@@ -180,7 +184,7 @@
                 @click="changetabs('4')"
                 :class="attacktabs == '4' ? 'attacktabactive' : ''"
               >
-                汽车 (3)
+                car (3)
               </div>
               <input type="text" placeholder="风俗" />
             </div>
@@ -188,7 +192,7 @@
           <div class="attackxian"></div>
           <div :class="attackclif == '1' ? 'attacktlfshow' : 'attacktlf'">
             <div @click="changeackinpf('1')" class="attacktlfy flex jus">
-              <div>气体选项</div>
+              <div>{{ $store.state.txt.attacktwoinpthr }}</div>
               <div>{{ attackinpf }}</div>
             </div>
             <div
@@ -202,8 +206,8 @@
                     : 'attacktlft flex jus'
                 "
               >
-                <div>经济</div>
-                <div>2分钟内执行</div>
+                <div>economy</div>
+                <div>Execute within 2min</div>
               </div>
               <div
                 @click="changetabf('2')"
@@ -213,8 +217,8 @@
                     : 'attacktlft flex jus'
                 "
               >
-                <div>常规的</div>
-                <div>1分钟内执行</div>
+                <div>regular</div>
+                <div>Execute within 1min</div>
               </div>
               <div
                 @click="changetabf('3')"
@@ -224,27 +228,33 @@
                     : 'attacktlft flex jus'
                 "
               >
-                <div>快速的</div>
-                <div>30秒内执行</div>
+                <div>fast</div>
+                <div>Execute within 30s</div>
               </div>
             </div>
           </div>
           <div class="attackxian"></div>
-          <button class="yattackbut">确认狙击自动化</button>
+          <button class="yattackbut">
+            {{ $store.state.txt.attackbotbut }}
+          </button>
         </div>
       </div>
       <div :class="attacktabf == '1' ? 'attacktabcon' : 'attacktabnone'">
         <img src="../assets/Moon-removebg-preview.png" alt="" />
         <div class="atttxt">
-          <div>您没有主动狙击位置。</div>
-          <div @click="changetabconf('0')">选择一个令牌开始狙击。></div>
+          <div>{{ $store.state.txt.attacktwotabery }}</div>
+          <div @click="changetabconf('0')">
+            {{ $store.state.txt.attacktwotabert }}
+          </div>
         </div>
       </div>
       <div :class="attacktabf == '2' ? 'attacktabcon' : 'attacktabnone'">
         <img src="../assets/Moon-removebg-preview.png" alt="" />
         <div class="atttxt">
-          <div>你没有任何狙击历史</div>
-          <div @click="changetabconf('0')">开始狙击></div>
+          <div>{{ $store.state.txt.attacktwotabethry }}</div>
+          <div @click="changetabconf('0')">
+            {{ $store.state.txt.attacktwotabthrt }}
+          </div>
         </div>
       </div>
     </div>
@@ -263,8 +273,8 @@ let attackinpthr = ref("0");
 let attackclif = ref("0");
 let attacktabs = ref("4");
 let attackfabs = ref("2");
-let attackinps = ref("汽车 (3)");
-let attackinpf = ref("常规的");
+let attackinps = ref("car (3)");
+let attackinpf = ref("regular");
 let changeack = (str) => {
   attacktab.value = str;
 };
@@ -277,17 +287,17 @@ let changetabs = (str) => {
   } else if (str == "3") {
     attackinps.value = "2";
   } else {
-    attackinps.value = "汽车 (3)";
+    attackinps.value = "car (3)";
   }
 };
 let changetabf = (str) => {
   attackfabs.value = str;
   if (str == "1") {
-    attackinpf.value = "经济";
+    attackinpf.value = "economy";
   } else if (str == "2") {
-    attackinpf.value = "常规的";
+    attackinpf.value = "regular";
   } else {
-    attackinpf.value = "快速的";
+    attackinpf.value = "fast";
   }
 };
 let changeackinps = (str) => {
@@ -336,13 +346,14 @@ let changetabconfsix = (str) => {
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   align-items: center;
+  justify-content: space-between;
 }
 .yattacktop h2 {
   font-size: 1.5rem;
   font-weight: 500;
 }
 .yattacktop div {
-  width: 65%;
+  width: 58%;
   height: 1.5px;
   background: black;
 }
@@ -495,7 +506,7 @@ let changetabconfsix = (str) => {
   height: 1.5rem;
 }
 .attacktsss > input {
-  width: 77.5%;
+  width: 75.5%;
   border: none;
   outline: none;
   font-size: 0.9rem;

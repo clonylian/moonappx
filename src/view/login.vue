@@ -2,55 +2,41 @@
   <view>
     <div class="head_log">
       <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
-      <p>{{ login }}</p>
+      <p @click="daslogin">{{ $store.state.txt.logintit }}</p>
       <p @click="zclog" style="color: rgb(154, 221, 111); cursor: pointer">
-        {{ logins }}
+        {{ $store.state.txt.logintitt }}
       </p>
     </div>
     <div class="cen">
       <div class="cen1">
         <div class="head1">
-          <input
-            type="text"
-            v-model="inputValue"
-            @input="checkInput"
-            placeholder="电子邮件"
-          />
+          <input type="text" v-model="inputValue" @input="checkInput" :placeholder="$store.state.txt.loginemail" />
         </div>
         <div class="head2">
-          <input
-            class="head3"
-            v-model="password"
-            :type="showPassword ? 'text' : 'password'"
-            placeholder="密码"
-          />
-          <p
-            @click="toggleShowPassword"
-            style="color: rgb(154, 221, 111); cursor: pointer"
-          >
-            {{ showPassword ? "隐藏" : "显示" }}
+          <input class="head3" v-model="password" :type="showPassword ? 'text' : 'password'"
+            :placeholder="$store.state.txt.loginpass" />
+          <p @click="toggleShowPassword" style="color: rgb(154, 221, 111); cursor: pointer">
+            {{ showPassword ? "show" : "hide" }}
           </p>
         </div>
         <p style="color: red" v-if="over" class="password-empty">
-          密码不能为空
+          {{ $store.state.txt.loginnonull }}
         </p>
       </div>
       <div class="cen2">
-        <button
-          :style="{ backgroundColor: buttonColor }"
-          class="cen3"
-          :disabled="disableButton"
-          @click="loginout"
-        >
-          登录
+        <button :style="{ backgroundColor: buttonColor }" class="cen3" :disabled="disableButton" @click="loginout">
+          {{ $store.state.txt.loginbut }}
         </button>
-        <p class="cen4x" @click="outlogin">{{ mmwl }}</p>
+        <p class="cen4x" @click="outlogin">
+          {{ $store.state.txt.loginforget }}
+        </p>
       </div>
     </div>
   </view>
 </template>
 
 <script>
+import api from "../common/api";
 export default {
   data() {
     return {
@@ -64,7 +50,8 @@ export default {
       buttonColor: "#b1b1b1",
       disableButton: true,
       showPassword: false,
-      over:false,
+      over: false,
+      lient: [],
     };
   },
   methods: {
@@ -84,12 +71,24 @@ export default {
     toggleShowPassword() {
       this.showPassword = !this.showPassword;
     },
+
     loginout() {
       if (this.password == "") {
-        this.over=! this.over
-        this.showPassword = !this.showPassword;
+        this.over = true;
       } else {
-        this.$router.push("/home");
+        api.login({
+          "email": this.inputValue,
+          "password": this.password
+        }).then(res => {
+          console.log(res);
+          console.log(res.data.data);
+          if (res.status === 200 && res.data.message!=="用户不存在") {
+            localStorage.setItem('userData', JSON.stringify(res.data.data)); // 将 res.data 存储在 localStorage 中
+            this.$router.push("/home");
+          }else{
+            alert('The network request failed or the current user does not exist')
+          }
+        });
       }
     },
     outlogin() {
@@ -98,6 +97,9 @@ export default {
     zclog() {
       this.$router.push("/Register");
     },
+  },
+  mounted() {
+    // localStorage.setItem("token", "aaa");
   },
 };
 </script>
@@ -117,16 +119,16 @@ export default {
   margin-top: 1rem;
 }
 
-.head_log > p:nth-child(2) {
+.head_log>p:nth-child(2) {
   width: 6rem;
   font-size: 20px;
   text-align: center;
   /* text-align: right; */
 }
 
-.head_log > p:nth-child(3) {
-  width: 3rem;
-  font-size: 16px;
+.head_log>p:nth-child(3) {
+  width: auto;
+  font-size: 0.875rem;
   color: gold;
   text-align: center;
 }
@@ -167,12 +169,14 @@ export default {
   border-radius: 1rem;
   margin: 1rem 0;
 }
-.head1 > input {
+
+.head1>input {
   width: 100%;
   border: none;
   outline: none;
   font-size: 1rem;
 }
+
 .head2 {
   display: flex;
   width: 100%;
@@ -221,5 +225,6 @@ export default {
   padding: 1rem 0 0 0;
   border-bottom: 1px blue solid;
   color: blue;
+  cursor: pointer;
 }
 </style>

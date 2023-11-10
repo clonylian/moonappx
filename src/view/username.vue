@@ -11,10 +11,10 @@
           d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
         ></path>
       </svg>
-      <p class="head_one">{{ reg }}</p>
+      <p class="head_one">{{ $store.state.txt.usertit }}</p>
       <p class="head_two">&nbsp &nbsp &nbsp &nbsp</p>
     </div>
-    <p class="head_two">{{ regs }}</p>
+    <p class="head_two">{{ $store.state.txt.usertittxt }}</p>
     <div class="reginput">
       <div class="regtwo">
         <div class="regp">
@@ -22,10 +22,10 @@
             type="text"
             v-model="inputValue"
             @input="checkInput"
-            placeholder="输入用户名"
+            :placeholder="$store.state.txt.userplace"
           />
         </div>
-        <p class="regpone">{{ moon }}<b></b></p>
+        <p class="regpone">{{ $store.state.txt.usercont }}<b></b></p>
       </div>
       <div
         :style="{ backgroundColor: buttonColor }"
@@ -33,13 +33,14 @@
         :disabled="disableButton"
         class="regthree"
       >
-        {{ jixu }}
+        {{ $store.state.txt.continue }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import api from '../common/api'
 export default {
   data() {
     return {
@@ -57,7 +58,30 @@ export default {
     gopass() {
       if (this.inputValue == "") {
       } else {
-        this.$router.push("/recommend");
+        localStorage.setItem('username', JSON.stringify(this.inputValue));
+        let username = JSON.parse(localStorage.getItem('username'));
+        let Rigister = JSON.parse(localStorage.getItem('Rigister'));
+        let moonpassword = JSON.parse(localStorage.getItem('moonpassword'));
+        console.log(this.token)
+        this.username = username
+        this.Rigister = Rigister
+        this.moonpassword = moonpassword
+        // console.log(this.inputValue)
+        api.register({
+          "email": this.Rigister,
+          "password": this.moonpassword,
+          "numericPassword": "123456",
+          "username": this.username
+        }).then(res => {
+          localStorage.removeItem('username');
+          localStorage.removeItem('Rigister');
+          localStorage.removeItem('moonpassword');
+          this.token = res.data.data.token
+          console.log(this.token)
+          localStorage.setItem('TOKEN', JSON.stringify(this.token));
+          this.$router.push("/recommend");
+        })
+
       }
     },
     gologin() {
@@ -92,7 +116,7 @@ export default {
 }
 
 .head_one {
-  width: 11rem;
+  width: auto;
   font-size: 24px;
 }
 

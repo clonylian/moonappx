@@ -89,4 +89,8 @@ export default {
   profit: function (data) {
     return Axios.post("/moon-server/api/trade/profit", data);
   },
+  //发送验证码接口
+  sendverify: function (data) {
+    return Axios.post("/moon-server/api/user/send-verify-code", data);
+  },
 };

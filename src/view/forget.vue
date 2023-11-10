@@ -22,7 +22,7 @@
       >
         {{ $store.state.txt.setpass }}
       </button>
-      <router-link to="/setting">{{ $store.state.txt.gologin }}</router-link>
+      <a @click="forget">{{ $store.state.txt.gologin }}</a>
     </div>
   </view>
 </template>
@@ -56,6 +56,14 @@ export default {
         this.enter = "0";
       }
     },
+    forget(){
+      if(localStorage.getItem('TOKEN') !== null){
+        this.$router.push("/setting");
+      }else{
+        this.$router.push("/login");
+        
+      }
+    }
   },
 };
 </script>

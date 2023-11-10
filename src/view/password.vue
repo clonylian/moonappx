@@ -87,6 +87,7 @@
 </template>
 
 <script setup>
+
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -112,6 +113,9 @@ let checkpassword = () => {
   const containsLowerCase = /[a-z]/.test(password.value);
   const containsNumber = /\d/.test(password.value);
   const hasValidLength = password.value.length >= 8;
+
+
+
   if (containsUpperCase) {
     listy.value = "1";
   } else {
@@ -148,7 +152,10 @@ let yjxpass = () => {
   }
   if (password.value == passwordy.value && ypassbut) {
     listbut.value = "1";
-    console.log(listbut.value);
+    localStorage.setItem('moonpassword', JSON.stringify(passwordy.value));
+    // console.log(passwordy.value) 
+   
+    // console.log(listbut.value);
   } else {
     listbut.value = "0";
   }

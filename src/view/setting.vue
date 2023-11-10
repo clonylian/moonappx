@@ -12,7 +12,7 @@
           d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
         ></path>
       </svg>
-      <h2>配置文件设置</h2>
+      <h2>{{ $store.state.txt.settitle }}</h2>
     </div>
     <img src="../assets/Moon.png" alt="" />
     <div class="ysetemail">
@@ -41,9 +41,9 @@
       <router-link to="/terms">{{ $store.state.txt.setterms }}</router-link>
       <router-link to="/policy">{{ $store.state.txt.setpolicy }}</router-link>
     </div>
-    <router-link to="/" class="ysetbutbot">
+    <a @click="outuser" class="ysetbutbot">
       {{ $store.state.txt.logout }}
-    </router-link>
+    </a>
     <router-link to="/removeuser" class="ysetremove">{{
       $store.state.txt.removename
     }}</router-link>
@@ -59,6 +59,10 @@ export default {
     goForward() {
       this.$router.push("/home"); // 向后导航一步
     },
+    outuser(){
+      localStorage.clear()
+      this.$router.push("/"); // 向后导航一步
+    }
   },
 };
 </script>
@@ -73,7 +77,8 @@ export default {
 }
 .ysetti h2 {
   font-weight: 400;
-  margin-left: 19.5%;
+  width: 100%;
+  text-align: center;
 }
 .yset {
   width: 100%;

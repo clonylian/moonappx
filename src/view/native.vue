@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="head">
-      <p>{{ title }}</p>
+      <p>{{ $store.state.txt.nativetitle }}</p>
       <div class="head_2">
         <img class="head_1" src="../assets/Moon-removebg-preview.png" />
       </div>
@@ -34,7 +34,7 @@
             fill="rgba(255,255,255,1)"
           ></path>
         </svg>
-        <p>在路愿用程式上邋德</p>
+        <p>{{ $store.state.txt.nativecon }}</p>
       </div>
     </div>
   </div>
@@ -49,7 +49,12 @@ export default {
   },
   methods: {
     gorig() {
-      this.$router.push("/home");
+        if(localStorage.getItem('TOKEN') !== null){
+          this.$router.push("/home");
+        }else{
+          this.$router.push('./Register')
+        }
+     
     },
   },
 };
