@@ -196,6 +196,11 @@ const routes = [
     name: "emailyzpass",
     component: () => import("../view/emailyzpass.vue"),
   },
+  {
+    path: "/rli",
+    name: "rli",
+    component: () => import("../view/rli.vue"),
+  },
 ];
 
 const router = VueRouter.createRouter({

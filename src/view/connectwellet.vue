@@ -3,21 +3,11 @@
     <div class="wallets">
       <div class="wallet_one">
         <router-link to="/home">
-          <svg
-            t="1699263679341"
-            class="icon"
-            viewBox="0 0 1024 1024"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            p-id="16724"
-            width="16"
-            height="16"
-          >
+          <svg t="1699263679341" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="16724" width="16" height="16">
             <path
               d="M806.4 263.2l-45.6-45.6L512 467.2 263.2 217.6l-45.6 45.6L467.2 512 217.6 760.8l45.6 45.6L512 557.6l248.8 248.8 45.6-45.6L557.6 512z"
-              p-id="16725"
-              fill="#2c2c2c"
-            ></path>
+              p-id="16725" fill="#2c2c2c"></path>
           </svg>
         </router-link>
         <div class="wallet_two">
@@ -25,31 +15,18 @@
             <p class="wal_two">+</p>
           </router-link>
           <router-link to="/walletsetting">
-            <svg
-              t="1699264352989"
-              class="iconx"
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="19102"
-              width="16"
-              height="16"
-            >
+            <svg t="1699264352989" class="iconx" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              p-id="19102" width="16" height="16">
               <path
                 d="M991.078 575.465l-101.71 0c-10.154 57.873-33.486 111.084-66.409 157.07l72.873 72.873c12.488 12.488 12.488 32.725 0 45.212l-45.212 45.212c-12.488 12.488-32.725 12.488-45.212 0l-73.186-73.186c-46.069 32.52-98.801 56.3-156.757 66.076l0 102.356c0 17.654-14.316 31.97-31.97 31.97l-63.941 0c-17.654 0-31.97-14.316-31.97-31.97L447.584 888.722c-58.02-9.789-111.346-32.853-157.377-65.456l-72.566 72.566c-12.488 12.488-32.725 12.488-45.212 0l-45.212-45.212c-12.488-12.488-12.488-32.725 0-45.212l72.361-72.361c-32.859-46.031-56.082-99.434-65.897-157.581L31.97 575.466c-17.654 0-31.97-14.316-31.97-31.97l0-63.94c0-17.654 14.316-31.97 31.97-31.97l101.71 0c10.154-57.873 33.486-111.084 66.409-157.07l-72.873-72.873c-12.488-12.488-12.488-32.725 0-45.212l45.212-45.212c12.488-12.488 32.725-12.488 45.212 0l73.186 73.186c46.069-32.52 98.801-56.3 156.757-66.076L447.583 31.97C447.584 14.316 461.9 0 479.554 0l63.941 0c17.654 0 31.97 14.316 31.97 31.97l0 102.356c58.02 9.789 111.346 32.853 157.377 65.456l72.566-72.566c12.488-12.488 32.725-12.488 45.212 0l45.212 45.212c12.488 12.488 12.488 32.725 0 45.212l-72.362 72.361c32.859 46.031 56.082 99.434 65.897 157.581l101.71 0c17.654 0 31.97 14.316 31.97 31.97l0 63.94C1023.048 561.148 1008.732 575.465 991.078 575.465zM511.524 255.762c-141.251 0-255.762 114.511-255.762 255.762s114.511 255.762 255.762 255.762 255.762-114.511 255.762-255.762S652.775 255.762 511.524 255.762z"
-                fill="#2c2c2c"
-                p-id="19103"
-              ></path>
+                fill="#2c2c2c" p-id="19103"></path>
             </svg>
           </router-link>
         </div>
       </div>
 
       <div class="carousel">
-        <div
-          class="slides"
-          :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
-        >
+        <div class="slides" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
           <div v-for="(item, index) in wallets" :key="index" class="slide">
             <p @click="tiaozhuan(index)" class="walltes">
               <b>{{ item.name }}</b>
@@ -61,55 +38,36 @@
                   "...." +
                   item.walletAddress.substr(-6)
                 }}
-                <svg
-                  style="width: 20px; height: 20px"
-                  @click="copyCode"
-                  t="1699326134810"
-                  class="icont"
-                  viewBox="0 0 1024 1024"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  p-id="4979"
-                  width="16"
-                  height="16"
-                >
+                <svg style="width: 20px; height: 20px" @click="copyCode" t="1699326134810" class="icont"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4979" width="16"
+                  height="16">
                   <path
                     d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326z m1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                    p-id="4980"
-                  ></path>
+                    p-id="4980"></path>
                 </svg>
               </div>
             </div>
             <div class="slid">
               <img
                 src="https://s1.aigei.com/src/img/png/60/6011fe010efd413d8b7d4767ee0eb25c.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:n3Er5tSo8tBOCPU5ga3QPRGhOUk="
-                alt=""
-              />
+                alt="" />
             </div>
             <p>{{ index + 1 }}/{{ walletnum }}</p>
           </div>
         </div>
         <div class="lbt">
           <button @click="prevSlide">
-            <svg
-              style="width: 25px; height: 25px"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
+            <svg style="width: 25px; height: 25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
-                d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
-              ></path>
+                d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z">
+              </path>
             </svg>
           </button>
           <button @click="nextSlide">
-            <svg
-              style="width: 25px; height: 25px"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
+            <svg style="width: 25px; height: 25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+              </path>
             </svg>
           </button>
         </div>
@@ -121,21 +79,11 @@
           <div class="nr_box1">
             <p style="display: flex">
               {{ $store.state.txt.ethree }}
-              <svg
-                t="1699328113636"
-                class="ico"
-                viewBox="0 0 1024 1024"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                p-id="5979"
-                width="16"
-                height="16"
-              >
+              <svg t="1699328113636" class="ico" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="5979" width="16" height="16">
                 <path
                   d="M512 992C246.912 992 32 777.088 32 512 32 246.912 246.912 32 512 32c265.088 0 480 214.912 480 480 0 265.088-214.912 480-480 480zM480 256v352a32 32 0 0 0 64 0V256a32 32 0 0 0-64 0z m-16 528a48 48 0 1 0 96 0 48 48 0 0 0-96 0z"
-                  p-id="5980"
-                  fill="#2c2c2c"
-                ></path>
+                  p-id="5980" fill="#2c2c2c"></path>
               </svg>
             </p>
             <p>0 &nbsp;ETH</p>
@@ -149,15 +97,10 @@
               {{ $store.state.txt.connectlistt }}
             </p>
           </div>
-          <svg
-            class="iconset"
-            @click="showOverlay"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
+          <svg class="iconset" @click="showOverlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
-              d="M6.17071 18C6.58254 16.8348 7.69378 16 9 16C10.3062 16 11.4175 16.8348 11.8293 18H22V20H11.8293C11.4175 21.1652 10.3062 22 9 22C7.69378 22 6.58254 21.1652 6.17071 20H2V18H6.17071ZM12.1707 11C12.5825 9.83481 13.6938 9 15 9C16.3062 9 17.4175 9.83481 17.8293 11H22V13H17.8293C17.4175 14.1652 16.3062 15 15 15C13.6938 15 12.5825 14.1652 12.1707 13H2V11H12.1707ZM6.17071 4C6.58254 2.83481 7.69378 2 9 2C10.3062 2 11.4175 2.83481 11.8293 4H22V6H11.8293C11.4175 7.16519 10.3062 8 9 8C7.69378 8 6.58254 7.16519 6.17071 6H2V4H6.17071Z"
-            ></path>
+              d="M6.17071 18C6.58254 16.8348 7.69378 16 9 16C10.3062 16 11.4175 16.8348 11.8293 18H22V20H11.8293C11.4175 21.1652 10.3062 22 9 22C7.69378 22 6.58254 21.1652 6.17071 20H2V18H6.17071ZM12.1707 11C12.5825 9.83481 13.6938 9 15 9C16.3062 9 17.4175 9.83481 17.8293 11H22V13H17.8293C17.4175 14.1652 16.3062 15 15 15C13.6938 15 12.5825 14.1652 12.1707 13H2V11H12.1707ZM6.17071 4C6.58254 2.83481 7.69378 2 9 2C10.3062 2 11.4175 2.83481 11.8293 4H22V6H11.8293C11.4175 7.16519 10.3062 8 9 8C7.69378 8 6.58254 7.16519 6.17071 6H2V4H6.17071Z">
+            </path>
           </svg>
         </div>
         <div class="ether_box">
@@ -196,10 +139,7 @@
               <div class="qhkone" @click="toggleContent">
                 <div class="qhkone_box">
                   <div class="qhktwo">
-                    <img
-                      style="width: 40px; height: 40px"
-                      src="../assets/9.png"
-                    />
+                    <img style="width: 40px; height: 40px" src="../assets/9.png" />
                     <p class="qhkthree">
                       <b>ETH</b>
                       <span>Ethereum</span>
@@ -241,51 +181,26 @@
         <div class="zzcdiv">
           <div class="zzcdivx">
             <p>{{ $store.state.txt.connecttc }}</p>
-            <svg
-              @click="hideOverlay"
-              clip-path=""
-              t="1699429390741"
-              class="icont"
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="4359"
-              id="mx_n_1699429390742"
-              width="16"
-              height="16"
-            >
+            <svg @click="hideOverlay" clip-path="" t="1699429390741" class="icont" viewBox="0 0 1024 1024" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" p-id="4359" id="mx_n_1699429390742" width="16" height="16">
               <path
                 d="M547.2 512l416-416c9.6-9.6 9.6-25.6 0-35.2s-25.6-9.6-35.2 0l-416 416-416-416c-9.6-9.6-25.6-9.6-35.2 0s-9.6 25.6 0 35.2l416 416-416 416c-9.6 9.6-9.6 25.6 0 35.2s25.6 9.6 35.2 0l416-416 416 416c9.6 9.6 25.6 9.6 35.2 0s9.6-25.6 0-35.2L547.2 512z"
-                p-id="4360"
-                fill="#2c2c2c"
-              ></path>
+                p-id="4360" fill="#2c2c2c"></path>
             </svg>
           </div>
           <div class="zzcdivt">
             <p>{{ $store.state.txt.homethrtype }}</p>
             <div class="zzcdx">
-              <div
-                @click="choosetaby('0')"
-                :class="filterraby == '0' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetaby('0')" :class="filterraby == '0' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttcly.one }}
               </div>
-              <div
-                @click="choosetaby('1')"
-                :class="filterraby == '1' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetaby('1')" :class="filterraby == '1' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttcly.two }}
               </div>
-              <div
-                @click="choosetaby('2')"
-                :class="filterraby == '2' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetaby('2')" :class="filterraby == '2' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttcly.three }}
               </div>
-              <div
-                @click="choosetaby('3')"
-                :class="filterraby == '3' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetaby('3')" :class="filterraby == '3' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttcly.four }}
               </div>
             </div>
@@ -293,40 +208,22 @@
           <div class="zzcdivt">
             <p>{{ $store.state.txt.homethrtype }}</p>
             <div class="zzcdxt">
-              <div
-                @click="choosetabt('0')"
-                :class="filterrabt == '0' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('0')" :class="filterrabt == '0' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.one }}
               </div>
-              <div
-                @click="choosetabt('1')"
-                :class="filterrabt == '1' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('1')" :class="filterrabt == '1' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.two }}
               </div>
-              <div
-                @click="choosetabt('2')"
-                :class="filterrabt == '2' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('2')" :class="filterrabt == '2' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.three }}
               </div>
-              <div
-                @click="choosetabt('3')"
-                :class="filterrabt == '3' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('3')" :class="filterrabt == '3' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.four }}
               </div>
-              <div
-                @click="choosetabt('4')"
-                :class="filterrabt == '4' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('4')" :class="filterrabt == '4' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.five }}
               </div>
-              <div
-                @click="choosetabt('5')"
-                :class="filterrabt == '5' ? 'zzcdone zzcdchover' : 'zzcdone'"
-              >
+              <div @click="choosetabt('5')" :class="filterrabt == '5' ? 'zzcdone zzcdchover' : 'zzcdone'">
                 {{ $store.state.txt.connecttclt.six }}
               </div>
             </div>
@@ -334,24 +231,20 @@
           <div class="zzcdivt">
             <p>{{ $store.state.txt.connectthr }}</p>
             <div class="zzc_rli">
-              <input src="" placeholder="DD/MM/YYY" />
+              <input ref="dateInput" v-model="selectedDateString" placeholder="DD/MM/YYY" />
+              <svg @click="dakai" style="width: 25px; height: 25px; margin-right: 1rem; "
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z">
+                </path>
+              </svg>
             </div>
             <div class="zzc_rlix">
-              <svg
-                t="1699431819529"
-                class="iconxs"
-                viewBox="0 0 1024 1024"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                p-id="4199"
-                width="16"
-                height="16"
-              >
+              <svg t="1699431819529" class="iconxs" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="4199" width="16" height="16">
                 <path
                   d="M197.7088 478.72l39.68-39.168a19.2 19.2 0 1 1 26.9824 27.2896l-73.344 72.448a19.2 19.2 0 0 1-26.9824 0l-75.136-74.24A19.2 19.2 0 1 1 115.8912 437.76l43.0592 42.5472C175.616 300.6464 326.7328 160 510.72 160c195.1232 0 353.28 158.1568 353.28 353.28 0 195.1232-158.1568 353.28-353.28 353.28a352.0512 352.0512 0 0 1-242.0224-95.9232 19.2 19.2 0 1 1 26.2912-27.9808 313.6768 313.6768 0 0 0 215.7312 85.504c173.9008 0 314.88-140.9792 314.88-314.88 0-173.9008-140.9792-314.88-314.88-314.88-162.2272 0-295.808 122.6752-313.0112 280.32z"
-                  fill="#3F3739"
-                  p-id="4200"
-                ></path>
+                  fill="#3F3739" p-id="4200"></path>
               </svg>
               {{ $store.state.txt.connectfour }}
             </div>
@@ -366,24 +259,11 @@
           <div class="tiquone">
             <p></p>
             <p style="font-size: 20px">{{ $store.state.txt.connectsix }}</p>
-            <svg
-              @click="tiqust"
-              clip-path=""
-              t="1699429390741"
-              class="icont"
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="4359"
-              id="mx_n_1699429390742"
-              width="16"
-              height="16"
-            >
+            <svg @click="tiqust" clip-path="" t="1699429390741" class="icont" viewBox="0 0 1024 1024" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" p-id="4359" id="mx_n_1699429390742" width="16" height="16">
               <path
                 d="M547.2 512l416-416c9.6-9.6 9.6-25.6 0-35.2s-25.6-9.6-35.2 0l-416 416-416-416c-9.6-9.6-25.6-9.6-35.2 0s-9.6 25.6 0 35.2l416 416-416 416c-9.6 9.6-9.6 25.6 0 35.2s25.6 9.6 35.2 0l416-416 416 416c9.6 9.6 25.6 9.6 35.2 0s9.6-25.6 0-35.2L547.2 512z"
-                p-id="4360"
-                fill="#2c2c2c"
-              ></path>
+                p-id="4360" fill="#2c2c2c"></path>
             </svg>
           </div>
           <div class="tiqutwo">
@@ -414,24 +294,11 @@
           <div class="tiquone">
             <p></p>
             <p style="font-size: 20px">{{ $store.state.txt.connectsix }}</p>
-            <svg
-              @click="tiqustx"
-              clip-path=""
-              t="1699429390741"
-              class="icont"
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="4359"
-              id="mx_n_1699429390742"
-              width="16"
-              height="16"
-            >
+            <svg @click="tiqustx" clip-path="" t="1699429390741" class="icont" viewBox="0 0 1024 1024" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" p-id="4359" id="mx_n_1699429390742" width="16" height="16">
               <path
                 d="M547.2 512l416-416c9.6-9.6 9.6-25.6 0-35.2s-25.6-9.6-35.2 0l-416 416-416-416c-9.6-9.6-25.6-9.6-35.2 0s-9.6 25.6 0 35.2l416 416-416 416c-9.6 9.6-9.6 25.6 0 35.2s25.6 9.6 35.2 0l416-416 416 416c9.6 9.6 25.6 9.6 35.2 0s9.6-25.6 0-35.2L547.2 512z"
-                p-id="4360"
-                fill="#2c2c2c"
-              ></path>
+                p-id="4360" fill="#2c2c2c"></path>
             </svg>
           </div>
           <div class="tiqutwo">
@@ -457,15 +324,147 @@
           </div>
         </div>
       </div>
+      <div v-show="rli" class="rlibox">
+        <div class="calendar">
+          <div class="header">
+            <button style="background: transparent;" @click="prevMonth">
+              <svg style="width: 25px; height: 25px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M11.9997 10.8284L7.04996 15.7782L5.63574 14.364L11.9997 8L18.3637 14.364L16.9495 15.7782L11.9997 10.8284Z">
+                </path>
+              </svg>
+            </button>
+            <span>{{ currentMonth }}</span>
+            <button style="background: transparent;" @click="nextMonth">
+              <svg style="width: 25px; height: 25px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z">
+                </path>
+              </svg>
+            </button>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th style="background: transparent;" v-for="day in daysOfWeek" :key="day">{{ day }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rqi" v-for="week in weeks" :key="week">
+                  <td v-for="date in week" :key="date" @click="selectDate(date, $event)">
+                    {{ date }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="rliqc">
+              <p @click="out">确认</p>
+              <p @click="out">取消</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <Foot></Foot>
   </div>
 </template>
 <script setup>
 import Foot from "../components/foot.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import api from "../common/api";
+
+
+const rli = ref(false);
+const currentDate = ref(new Date());
+const selectedDate = ref(null);
+
+const currentMonth = computed(() => {
+  const options = { month: 'long', year: 'numeric' };
+  return currentDate.value.toLocaleDateString('en-US', options);
+});
+
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const selectedDateString = computed({
+  get: () => {
+    if (selectedDate.value) {
+      const year = currentDate.value.getFullYear();
+      const month = currentDate.value.getMonth() + 1;
+      return `${selectedDate.value} /${month}/${year}`;
+    } else {
+      return '';
+    }
+  },
+  set: (value) => {
+    const parts = value.split('/');
+    selectedDate.value = parseInt(parts[0], 10);
+  }
+});
+
+const weeks = computed(() => {
+  const firstDayOfMonth = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), 1);
+  const lastDayOfMonth = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() + 1, 0);
+  const firstDayOfWeek = firstDayOfMonth.getDay();
+  const lastDayOfWeek = lastDayOfMonth.getDay();
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  const weeks = [];
+  let week = [];
+
+  for (let i = 0; i < firstDayOfWeek; i++) {
+    week.push('');
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    week.push(day);
+    if ((firstDayOfWeek + day - 1) % 7 === 6) {
+      weeks.push(week);
+      week = [];
+    }
+  }
+
+  for (let i = lastDayOfWeek + 1; i <= 6; i++) {
+    week.push('');
+  }
+
+  weeks.push(week);
+
+  return weeks;
+});
+
+const dakai = () => {
+  rli.value = true;
+  console.log(1111)
+};
+
+const out = () => {
+  rli.value = false;
+};
+const selectDate = (date, event) => {
+  selectedDate.value = date;
+  const year = currentDate.value.getFullYear();
+  const month = currentDate.value.getMonth() + 1;
+  const day = date;
+  const formattedDate = `${day}/${month}/${year}`;
+  event.target.value = formattedDate;
+};
+const prevMonth = () => {
+  currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() - 1, 1);
+};
+
+const nextMonth = () => {
+  currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() + 1, 1);
+};
+
+const isSelected = (date) => {
+  if (selectedDate.value !== null) {
+    const selected = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), date);
+    return selectedDate.value === date;
+  }
+  return false;
+};
 let wallets = ref([]);
 let walletnum = ref(0);
 const router = useRouter();
@@ -577,6 +576,83 @@ const nextSlide = () => {
 };
 </script>
 <style scoped>
+.rlibox {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.calendar {
+  width: 90%;
+  display: flex;
+  border-radius: 15px;
+  background-color: white;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+  text-align: center;
+  border-right: 1px black solid;
+  margin-right: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 5px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #0099ff;
+  border-radius: 15px;
+}
+
+.rqi>td:hover {
+  background-color: #0099ff;
+  border-radius: 15px;
+}
+
+.rliqc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rliqc>p {
+  width: 4rem;
+  text-align: center;
+  line-height: 2rem;
+  height: 2rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 1px black solid;
+  margin-top: 2rem;
+  background-color: rgb(153, 220, 113);
+}
+
 .wallet_box {
   width: 100%;
   height: 100%;
@@ -597,14 +673,14 @@ const nextSlide = () => {
   margin-bottom: 3rem;
 }
 
-.code > p {
+.code>p {
   position: absolute;
   top: 0;
   right: -50px;
   /* 调整按钮距离代码的位置 */
 }
 
-.code > svg {
+.code>svg {
   fill: white;
 }
 
@@ -615,7 +691,7 @@ const nextSlide = () => {
   position: relative;
 }
 
-.lbt > button {
+.lbt>button {
   width: 3rem;
   height: 3rem;
   border-radius: 30px;
@@ -624,7 +700,7 @@ const nextSlide = () => {
   cursor: pointer;
 }
 
-.lbt > button > svg {
+.lbt>button>svg {
   fill: rgb(131, 186, 95);
 }
 
@@ -651,7 +727,7 @@ const nextSlide = () => {
   height: 30px;
 }
 
-.slide > p {
+.slide>p {
   font-size: 12px;
   margin-top: 0.5rem;
 }
@@ -775,9 +851,11 @@ const nextSlide = () => {
 .ethx {
   display: flex;
 }
+
 .ethx p {
   cursor: pointer;
 }
+
 .eths span {
   padding: 2rem 1rem 0 0rem;
 }
@@ -916,22 +994,25 @@ const nextSlide = () => {
   align-items: center;
   justify-content: space-between;
 }
+
 .zzcdivx svg {
   cursor: pointer;
 }
+
 .zzcdivt {
   width: 100%;
   margin: 0 auto;
   padding-top: 1.5rem;
 }
 
-.zzcdivt > p {
+.zzcdivt>p {
   /* display: flex; */
   padding-bottom: 0.5rem;
 }
 
 .zzcdx {
   display: flex;
+
 }
 
 .zzcdone {
@@ -970,9 +1051,11 @@ const nextSlide = () => {
   display: flex;
   border-radius: 15px;
   margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.zzc_rli > input {
+.zzc_rli>input {
   margin-left: 1rem;
   border: none;
   outline: none;
@@ -1039,11 +1122,11 @@ const nextSlide = () => {
   margin: 1rem auto;
 }
 
-.tiqutwo > p {
+.tiqutwo>p {
   color: rgb(153, 220, 113);
 }
 
-.tiqutwo > input {
+.tiqutwo>input {
   border: none;
   outline: none;
   text-align: center;
@@ -1069,7 +1152,7 @@ const nextSlide = () => {
   padding: 0.5rem 0;
 }
 
-.tiqutour > input {
+.tiqutour>input {
   width: 40%;
   font-size: 20px;
   border: none;
@@ -1083,7 +1166,7 @@ const nextSlide = () => {
   align-items: center;
 }
 
-.tiqufive > img {
+.tiqufive>img {
   width: 20px;
   height: 30px;
   margin-left: 1rem;
@@ -1095,7 +1178,7 @@ const nextSlide = () => {
   color: rgb(177, 177, 177);
 }
 
-.tiqusix > span {
+.tiqusix>span {
   font-size: 16px;
   color: rgb(183, 189, 255);
 }
@@ -1107,7 +1190,7 @@ const nextSlide = () => {
   justify-content: space-between;
 }
 
-.tiqueven > p:nth-child(1) {
+.tiqueven>p:nth-child(1) {
   width: 55%;
   padding: 1.5rem 0;
   text-align: center;
@@ -1117,7 +1200,7 @@ const nextSlide = () => {
   cursor: pointer;
 }
 
-.tiqueven > p:nth-child(2) {
+.tiqueven>p:nth-child(2) {
   width: 40%;
   text-align: center;
   padding: 1.5rem 0;
@@ -1156,7 +1239,7 @@ const nextSlide = () => {
   justify-content: space-between;
 }
 
-.botton1 > img {
+.botton1>img {
   width: 20px;
   height: auto;
 }
@@ -1172,7 +1255,7 @@ const nextSlide = () => {
   cursor: pointer;
 }
 
-.botton2 > img {
+.botton2>img {
   width: 25px;
 }
 

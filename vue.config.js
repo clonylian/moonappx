@@ -5,7 +5,7 @@ module.exports = defineConfig({
     devServer: {
       proxy: {
         "/moon-server": {
-          target: "http://43.134.115.222:8080/moon-server/",
+          target: "http://178.16.141.179:8080/moon-server/",
           changeOrigin: true,
           ws: true,
           pathRewrite: { "^/moon-server": "" },
