@@ -60,7 +60,6 @@ import { ref } from "vue";
 const yinc = ref(false);
 function yinys() {
   yinc.value = true;
-  console.log(111);
 }
 </script>
 <style scoped>

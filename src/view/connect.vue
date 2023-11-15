@@ -1,11 +1,17 @@
 <template>
   <view class="yconnect">
     <div class="yconnecttop">
-      <svg @click="goForward()" style="width: 25px; height: 25px; padding-top: 1rem; padding-left: 1rem;" class="clone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z">
-                </path>
-            </svg>
+      <svg
+        @click="goForward()"
+        style="width: 25px; height: 25px; padding-top: 1rem; padding-left: 1rem"
+        class="clone"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
+        ></path>
+      </svg>
       <img src="../assets/connect.png" alt="" />
       <span class="yconnecttopy">{{ $store.state.txt.connectti }}</span>
       <span class="yconnecttopt">{{ $store.state.txt.connectjs }}</span>
@@ -26,7 +32,7 @@ export default {
   },
   methods: {
     goForward() {
-      this.$router.go(-1); // 向后导航一步
+      this.$router.go(-1);
     },
   },
 };
@@ -40,7 +46,7 @@ export default {
   justify-content: space-between;
   flex-direction: column;
 }
-.yconnecttop > span:nth-child(1) {
+.yconnecttop > svg {
   position: absolute;
   height: 2.5rem;
   width: 2.5rem;

@@ -111,6 +111,7 @@ export default {
   border: 2px solid black;
 }
 .yforgetinp input {
+  width: 100%;
   border: none;
   outline: none;
   font-size: 1rem;

@@ -2,21 +2,41 @@
   <view class="yforget">
     <div class="yforgettop">
       <div class="ychangeusertopyti flex">
-        <svg @click="goForward()" style="width: 25px; height: 25px" class="clone" xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24">
+        <svg
+          @click="goForward()"
+          style="width: 25px; height: 25px"
+          class="clone"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
           <path
-            d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z">
-          </path>
+            d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
+          ></path>
         </svg>
         <h2>{{ $store.state.txt.changepasstit }}</h2>
       </div>
-      <span class="yforgetjs">{{ $store.state.txt.forgetjs }}</span>
       <div class="yforgetinp">
-        <input @input="enteremail()" v-model="email" type="text" :placeholder="$store.state.txt.enteremail" />
+        <input
+          v-model="passwordy"
+          type="text"
+          :placeholder="$store.state.txt.enterpassword"
+        />
+      </div>
+      <div class="yforgetinp">
+        <input
+          @input="enterpassword()"
+          v-model="passwordt"
+          type="text"
+          :placeholder="$store.state.txt.enterpassword"
+        />
       </div>
     </div>
     <div class="yforgetbot">
-      <button @click="setpass()" ref="settingpass" :class="enter == '1' ? 'yforgetl' : ''">
+      <button
+        @click="setpass()"
+        ref="settingpass"
+        :class="enter == '1' ? 'yforgetl' : ''"
+      >
         {{ $store.state.txt.setpass }}
       </button>
     </div>
@@ -28,36 +48,42 @@ import api from "../common/api";
 export default {
   data() {
     return {
-      email: "",
+      passwordy: "",
+      passwordt: "",
       enter: "0",
+      userid: "",
     };
   },
   methods: {
-    enteremail() {
-      const emailPattern = /^[a-zA-Z0-9]+[-|a-zA-Z0-9._]*@[a-zA-Z0-9]+(-[a-zA-Z0-9]+)?\.[a-zA-Z]{2,}$/;
-      const isValid = emailPattern.test(this.email);
-      if (isValid) {
+    enterpassword() {
+      if (this.passwordy != "" && this.passwordt != "") {
         this.enter = "1";
-
-      } else {
-        this.enter = "0";
       }
     },
     setpass() {
-      if (this.enter = "1") {
-        api.sendverify({ email: this.email }).then((res) => {
-          if (res.data.status == "success") {
-            this.$router.push("/emailyzpass");
-          }
-        });
-      } else {
-        return
+      if (this.passwordy != "" && this.passwordt != "") {
+        api
+          .changepassword({
+            userId: this.userid,
+            oldPassword: this.passwordy,
+            newPassword: this.passwordt,
+          })
+          .then((res) => {
+            console.log(res.data.status);
+            if (res.data.status == "success") {
+              this.$router.push("/setting");
+            }
+          });
       }
-
     },
     goForward() {
       this.$router.go(-1);
     },
+  },
+  mounted() {
+    // let useroken = localStorage.getItem("userData");
+    // this.userid = useroken.userid;
+    // this.userid = "123456";
   },
 };
 </script>
@@ -67,25 +93,20 @@ export default {
   align-items: center;
   margin-bottom: 1rem;
 }
-
 .ychangeusertopyti svg {
   cursor: pointer;
 }
-
 .ychangeusertopyti h2 {
   font-weight: 400;
   width: 100%;
   text-align: center;
 }
-
-.butnone>button:nth-child(1) {
+.butnone > button:nth-child(1) {
   display: none !important;
 }
-
 .none {
   display: none !important;
 }
-
 .yforget {
   width: 100%;
   height: 100%;
@@ -113,20 +134,31 @@ export default {
   border-radius: 1.15rem;
   border: 2px solid black;
 }
-
-.yforgetinp>input {
+.yforgetinp > input {
   width: 100%;
   border: none;
   outline: none;
   font-size: 1rem;
 }
-
 .yforgetbot {
   width: 85%;
   margin: 0 auto;
 }
 
-.yforgetbot>button {
+.yforgetbot > button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 1.25rem;
+  background: rgb(177, 177, 177);
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  color: black;
+  border: 0.125rem solid black;
+  box-sizing: border-box;
+  margin: 0.75rem 0;
+}
+.yforgetbot > a {
   display: block;
   text-align: center;
   width: 100%;
@@ -140,24 +172,9 @@ export default {
   margin: 0.75rem 0;
 }
 
-.yforgetbot>a {
-  display: block;
-  text-align: center;
-  width: 100%;
-  padding: 1.25rem;
-  background: rgb(177, 177, 177);
-  border-radius: 1rem;
-  font-size: 0.95rem;
-  color: black;
-  border: 0.125rem solid black;
-  box-sizing: border-box;
-  margin: 0.75rem 0;
-}
-
-.yforgetbot>button:nth-child(2) {
+.yforgetbot > button:nth-child(2) {
   background: white;
 }
-
 .yforgetl {
   background: rgb(154, 221, 111) !important;
   cursor: pointer;

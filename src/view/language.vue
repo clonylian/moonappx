@@ -1,6 +1,6 @@
 <template>
   <div class="ylanguagebg">
-    <div class="ylanguage">language</div>
+    <div class="ylanguage">{{ $store.state.txt.languagetit }}</div>
     <div class="ylanguagebox">
       <div class="ylanguagebcon">
         <div>{{ store.state.txt.language }}</div>
@@ -15,22 +15,23 @@
           >
             <div @click="changelang('ch')">汉语</div>
             <div @click="changelang('en')">English</div>
-
           </div>
         </div>
       </div>
     </div>
-    <router-link class="ylanguagejx" to="/welcome">{{
-      store.state.txt.continue
-    }}</router-link>
+    <a @click="goout" class="ylanguagejx">{{ store.state.txt.continue }}</a>
     <!-- <button class="ylanguagejx" @click="twitterlog()">推特登录</button> -->
   </div>
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
+
 import { ref } from "vue";
 import { useStore } from "vuex";
 import hello from "hellojs/dist/hello.all";
+
+const router = useRouter();
 let choose = ref("0");
 const store = useStore();
 let changelang = (str) => {
@@ -40,9 +41,17 @@ let changelang = (str) => {
 let chooselang = () => {
   choose.value = "1";
 };
-
+let goout = () => {
+  if (localStorage.getItem("TOKEN") !== null) {
+    router.push("/setting");
+    console.log(222);
+  } else {
+    router.push("/welcome");
+    console.log(111);
+  }
+};
 let twitterlog = () => {
-  console.log(hello)
+  console.log(hello);
   hello.init(
     {
       twitter: "sqveEWxbjci9yGlGswHxShsxH",
@@ -55,7 +64,7 @@ let twitterlog = () => {
     .login()
     .then(
       function (res) {
-        console.log(res, "登录成功");
+        console.log(res, "Login succeeded");
       },
       function (err) {
         console.log("err", err);
@@ -84,30 +93,36 @@ let twitterlog = () => {
   background: rgb(21, 22, 26);
   box-sizing: border-box;
 }
+
 .ylanguage {
   text-align: center;
   font-size: 1.5rem;
   color: #fff;
 }
+
 .ylanguagebox {
   display: flex;
   height: 77.5%;
   justify-content: center;
   align-items: center;
 }
+
 .ylanguagebcon {
   width: 100%;
   height: 44.8%;
   text-align: center;
   background: rgb(18, 19, 22);
 }
+
 .ylanguagebcon > div:nth-child(1) {
   color: rgb(154, 221, 111);
   font-size: 2.25rem;
 }
+
 .ylanguagebxl {
   width: 100%;
 }
+
 .yclanguage {
   display: block;
   width: 75%;
@@ -116,6 +131,7 @@ let twitterlog = () => {
   margin: 0.5rem auto;
   border-radius: 0.75rem;
 }
+
 .yclanguagebox {
   width: 40%;
   color: #fff;
@@ -127,31 +143,39 @@ let twitterlog = () => {
   display: none;
   overflow-y: scroll;
 }
+
 .yclangshow {
   display: block;
 }
+
 .yclanguagebox > div {
   padding: 0.25rem 0;
   cursor: pointer;
 }
+
 .yclanguagebox::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
+
 .yclanguagebox::-webkit-scrollbar-track {
   background: black;
   border-radius: 2px;
 }
+
 .yclanguagebox::-webkit-scrollbar-thumb {
   background: rgb(154, 221, 111);
   border-radius: 10px;
 }
+
 .yclanguagebox::-webkit-scrollbar-corner {
   background: #204754;
 }
+
 .yclanguagebox > div:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
 .ylanguagejx {
   display: block;
   text-align: center;
@@ -164,6 +188,7 @@ let twitterlog = () => {
   border: 0.125rem solid black;
   box-sizing: border-box;
 }
+
 .ylanguagejx:hover {
   background: rgb(148, 212, 107);
 }

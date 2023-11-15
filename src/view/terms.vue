@@ -727,7 +727,6 @@ export default {
       console.log(scrollArea, scrollContent, scrollArea.scrollTop);
       if (Math.floor(scrollArea.scrollTop) == scrollContent) {
         this.gobot = "1";
-        console.log("到底了");
       } else {
         this.gobot = "0";
       }
@@ -737,7 +736,7 @@ export default {
       scrollAreay.scrollTop = scrollAreay.scrollHeight;
     },
     navigateBack() {
-      this.$router.go(-1); // 向后导航一步
+      this.$router.go(-1);
     },
   },
 };

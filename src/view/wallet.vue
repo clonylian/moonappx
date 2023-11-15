@@ -51,32 +51,48 @@ export default {
       userid: "",
       token: "",
       walletadd: "",
+      createwallte: {},
     };
   },
   mounted() {
-    // let useroken = localStorage.getItem("usertoken");
-    // this.userid = useroken.userid;
-    // this.token = useroken.token;
+    let useroken = localStorage.getItem("userData");
+    this.userid = useroken.userid;
+    this.token = useroken.token;
     api
       .create({
-        // userId: this.userid,
-        // token: this.token,
-        userId: "123456",
-        token: "abcdef123456",
+        userId: this.userid,
+        token: this.token,
+        // userId: "123456",
+        // token: "abcdef123456",
       })
       .then((res) => {
+        console.log(res);
+        this.createwallte = res.data;
+        console.log(this.createwallte);
         this.walletadd =
           res.data.walletAddress.substring(0, 6) +
           "..." +
           res.data.walletAddress.substring(res.data.walletAddress.length - 4);
-          localStorage.setItem('wallet', this.walletadd)
+        localStorage.setItem("wallet", this.walletadd);
       });
   },
   methods: {
     gopass() {
       if (this.inputValue == "") {
       } else {
-        this.$router.push("/home");
+        api
+          .link({
+            userId: "123456",
+            token: "abcdef123456",
+            walletAddress: this.createwallte.walletAddress,
+          })
+          .then((res) => {
+            if (res.status == "success") {
+              this.$router.push("/home");
+            } else {
+              alert("Association failed");
+            }
+          });
       }
     },
     gologin() {
@@ -110,6 +126,7 @@ export default {
   height: 25px;
   margin-top: 1rem;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .wal_two {

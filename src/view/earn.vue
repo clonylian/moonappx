@@ -5,19 +5,35 @@
         <h2>{{ $store.state.txt.earntit }}</h2>
         <div></div>
         <router-link to="/setting">
-          <svg  t="1699264352989" class="iconx" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            p-id="19102" width="30" height="30">
+          <svg
+            t="1699264352989"
+            class="iconx"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="19102"
+            width="30"
+            height="30"
+          >
             <path
               d="M991.078 575.465l-101.71 0c-10.154 57.873-33.486 111.084-66.409 157.07l72.873 72.873c12.488 12.488 12.488 32.725 0 45.212l-45.212 45.212c-12.488 12.488-32.725 12.488-45.212 0l-73.186-73.186c-46.069 32.52-98.801 56.3-156.757 66.076l0 102.356c0 17.654-14.316 31.97-31.97 31.97l-63.941 0c-17.654 0-31.97-14.316-31.97-31.97L447.584 888.722c-58.02-9.789-111.346-32.853-157.377-65.456l-72.566 72.566c-12.488 12.488-32.725 12.488-45.212 0l-45.212-45.212c-12.488-12.488-12.488-32.725 0-45.212l72.361-72.361c-32.859-46.031-56.082-99.434-65.897-157.581L31.97 575.466c-17.654 0-31.97-14.316-31.97-31.97l0-63.94c0-17.654 14.316-31.97 31.97-31.97l101.71 0c10.154-57.873 33.486-111.084 66.409-157.07l-72.873-72.873c-12.488-12.488-12.488-32.725 0-45.212l45.212-45.212c12.488-12.488 32.725-12.488 45.212 0l73.186 73.186c46.069-32.52 98.801-56.3 156.757-66.076L447.583 31.97C447.584 14.316 461.9 0 479.554 0l63.941 0c17.654 0 31.97 14.316 31.97 31.97l0 102.356c58.02 9.789 111.346 32.853 157.377 65.456l72.566-72.566c12.488-12.488 32.725-12.488 45.212 0l45.212 45.212c12.488 12.488 12.488 32.725 0 45.212l-72.362 72.361c32.859 46.031 56.082 99.434 65.897 157.581l101.71 0c17.654 0 31.97 14.316 31.97 31.97l0 63.94C1023.048 561.148 1008.732 575.465 991.078 575.465zM511.524 255.762c-141.251 0-255.762 114.511-255.762 255.762s114.511 255.762 255.762 255.762 255.762-114.511 255.762-255.762S652.775 255.762 511.524 255.762z"
-              fill="#2c2c2c" p-id="19103"></path>
+              fill="#ffffff"
+              p-id="19103"
+            ></path>
           </svg>
         </router-link>
       </div>
       <div class="yearntwo flex jus">
-        <div @click="clickearn('0')" :class="yearnact == '0' ? 'yearnactive' : ''">
+        <div
+          @click="clickearn('0')"
+          :class="yearnact == '0' ? 'yearnactive' : ''"
+        >
           {{ $store.state.txt.earntaby }}
         </div>
-        <div @click="clickearn('1')" :class="yearnact == '1' ? 'yearnactive' : ''">
+        <div
+          @click="clickearn('1')"
+          :class="yearnact == '1' ? 'yearnactive' : ''"
+        >
           MOON Drop
         </div>
       </div>
@@ -42,16 +58,32 @@
             <span>{{ $store.state.txt.earntabthrtxty }}</span>
           </div>
         </div>
-        <img class="yearnymoon" src="../assets/Moon-removebg-preview.png" alt="" />
+        <img
+          class="yearnymoon"
+          src="../assets/Moon-removebg-preview.png"
+          alt=""
+        />
         <div class="yearnfri">
-          <button>{{ $store.state.txt.earntabythr }}</button>
+          <button @click="showModal">{{ $store.state.txt.earntabythr }}</button>
           <div class="yearnfribox">
             <div class="yearnfriboxtop">
               {{ $store.state.txt.earnrabyfive }}
             </div>
             <div class="flex jus yearnfrisbox">
-              <div>{{ $store.state.txt.earntabythr }}： <span>0</span></div>
-              <button>{{ $store.state.txt.earnrabyfour }}</button>
+              <div>
+                {{ $store.state.txt.earntabythr }}： <span>{{ friends }}</span>
+              </div>
+              <button @click="showModal" style="cursor: pointer">
+                {{ $store.state.txt.earnrabyfour }}
+              </button>
+            </div>
+            <div
+              v-for="(item, index) in invites"
+              class="flex jus invitesfri"
+              :key="index"
+            >
+              <span>{{ item.inviter }}</span>
+              <span>{{ item.earnings }}</span>
             </div>
           </div>
         </div>
@@ -99,7 +131,11 @@
           <div class="yearnmdboxft">
             <div class="yearnmdboxfty">{{ $store.state.txt.earntabtten }}</div>
 
-            <div v-for="(item, index) in yearnpoints" :key="index" class="yearnmdboxftt flex jus">
+            <div
+              v-for="(item, index) in yearnpoints"
+              :key="index"
+              class="yearnmdboxftt flex jus"
+            >
               <span>{{ item.timestamp }}:</span>
               <span>{{ item.amount }} pts</span>
             </div>
@@ -126,13 +162,47 @@
                 {{ $store.state.txt.earntabttenfive }}
               </div>
             </div>
-            <div class="yearnphbt flex jus" v-for="(item, index) in yearnphb" :key="index">
+            <div
+              class="yearnphbt flex jus"
+              v-for="(item, index) in yearnphb"
+              :key="index"
+            >
               <div class="yearnphbtleft">
                 <span>{{ index + 1 }}</span>
                 <span style="margin-left: 1.5rem">{{ item.userName }}</span>
               </div>
               <div class="yearnphbtright">{{ item.points }}</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="isModalVisible" class="modal">
+      <div class="modal-content">
+        <span @click="closeModal" class="close">&times;</span>
+        <div class="moonbox">
+          <p class="moonbi">{{ $store.state.txt.earnmoon }}</p>
+          <div class="moon_two">
+            {{ recommendationCode }}
+            <svg
+              @click="copyText"
+              style="width: 20px; height: 20px"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6ZM7 11H13V13H7V11ZM7 15H13V17H7V15Z"
+                fill="rgba(100,205,138,1)"
+              ></path>
+            </svg>
+          </div>
+          <div @click="closeModal" style="cursor: pointer" class="moon_three">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19ZM13 9V16H11V9H6L12 3L18 9H13Z"
+              ></path>
+            </svg>
+            {{ $store.state.txt.earnpy }}
           </div>
         </div>
       </div>
@@ -145,6 +215,29 @@
 import { ref, onMounted } from "vue";
 import Foot from "../components/foot.vue";
 import api from "../common/api";
+let recommendationCode = ref("");
+const isModalVisible = ref(false);
+
+const showModal = () => {
+  isModalVisible.value = true;
+  api.recommendation().then((res) => {
+    recommendationCode.value = res.data.recommendationCode;
+  });
+};
+
+const closeModal = () => {
+  isModalVisible.value = false;
+};
+
+const copyText = () => {
+  const el = document.createElement("textarea");
+  el.value = recommendationCode.value;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand("copy");
+  document.body.removeChild(el);
+  alert("Copied Text: " + recommendationCode.value);
+};
 let yearnact = ref("0");
 let yearnphb = ref([
   { userName: "Akash", points: "251,600", walletAddressStar: "0x123***df3" },
@@ -168,13 +261,18 @@ let yearnpoints = ref([
   { timestamp: "Follow Twitter", amount: 10 },
   { timestamp: "Jion Telegram", amount: 10 },
 ]);
+let invites = ref([]);
+let friends = ref(0);
 onMounted(() => {
   api.ranking().then((res) => {
     yearnphb.value = res.data.ranking;
   });
   api.points().then((res) => {
-    console.log(res, 111);
     yearnpoints.value = res.data.points;
+  });
+  api.invitations().then((res) => {
+    invites.value = res.data.invitations;
+    friends.value = invites.value.length;
   });
 });
 let clickearn = (str) => {
@@ -183,6 +281,84 @@ let clickearn = (str) => {
 </script>
 
 <style scoped>
+.modal {
+  /* display: none;  */
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 15px;
+  /* height: 6rem; */
+  background-color: black;
+  border: 1px black solid;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.moonbi {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.moonbox {
+  width: 100%;
+  border: 2px white solid;
+  border-radius: 15px;
+}
+
+.moon_two {
+  width: 100%;
+  display: flex;
+  color: rgb(153, 220, 113);
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.moon_two svg {
+  margin-left: 0.25rem;
+  cursor: pointer;
+}
+.moon_three {
+  width: 80%;
+  padding: 0.8rem;
+  background-color: rgb(153, 220, 113);
+  border: 1px black solid;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem auto;
+  cursor: pointer;
+}
+
+.moon_three > svg {
+  width: 20px;
+  height: 20px;
+}
+
 .yearnshow {
   display: block;
 }
@@ -190,7 +366,11 @@ let clickearn = (str) => {
 .yearnnone {
   display: none;
 }
-
+.invitesfri {
+  width: 100%;
+  color: white;
+  padding: 0.5rem 0;
+}
 .yearn {
   width: 100%;
   height: 100%;
@@ -310,7 +490,7 @@ let clickearn = (str) => {
   position: relative;
 }
 
-.yearnbox>span {
+.yearnbox > span {
   font-size: 0.85rem;
   font-weight: 400;
 }
@@ -320,7 +500,7 @@ let clickearn = (str) => {
   font-weight: 550;
 }
 
-.yearnbox>div {
+.yearnbox > div {
   font-size: 0.75rem;
   font-weight: 450;
 }
@@ -393,7 +573,7 @@ let clickearn = (str) => {
   width: 100%;
 }
 
-.yearnfri>button {
+.yearnfri > button {
   width: 100%;
   display: block;
   padding: 1.15rem;
@@ -402,12 +582,13 @@ let clickearn = (str) => {
   font-size: 1.25rem;
   background: rgb(255, 229, 0);
   box-shadow: 4px 4px 8px white;
+  cursor: pointer;
 }
 
 .yearnfribox {
   width: 100%;
-  height: 11.25rem;
-  padding: 0.75rem 1rem;
+  height: auto;
+  padding: 0.75rem 1rem 1rem;
   border: 0.125rem solid white;
   border-radius: 1rem;
   margin-top: 1.5rem;

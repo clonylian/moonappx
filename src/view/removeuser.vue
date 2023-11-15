@@ -24,12 +24,12 @@ export default {
   },
   methods: {
     navigateBack() {
-      this.$router.go(-1); // 向后导航一步
+      this.$router.go(-1);
     },
-    outuser(){
-      localStorage.clear()
-      this.$router.push("/"); // 向后导航一步
-    }
+    outuser() {
+      localStorage.clear();
+      this.$router.push("/");
+    },
   },
 };
 </script>

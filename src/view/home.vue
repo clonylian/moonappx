@@ -10,12 +10,22 @@
         ></path>
       </svg>
       <router-link to="/setting">
-        <svg  t="1699264352989" class="iconx" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            p-id="19102" width="30" height="30">
-            <path
-              d="M991.078 575.465l-101.71 0c-10.154 57.873-33.486 111.084-66.409 157.07l72.873 72.873c12.488 12.488 12.488 32.725 0 45.212l-45.212 45.212c-12.488 12.488-32.725 12.488-45.212 0l-73.186-73.186c-46.069 32.52-98.801 56.3-156.757 66.076l0 102.356c0 17.654-14.316 31.97-31.97 31.97l-63.941 0c-17.654 0-31.97-14.316-31.97-31.97L447.584 888.722c-58.02-9.789-111.346-32.853-157.377-65.456l-72.566 72.566c-12.488 12.488-32.725 12.488-45.212 0l-45.212-45.212c-12.488-12.488-12.488-32.725 0-45.212l72.361-72.361c-32.859-46.031-56.082-99.434-65.897-157.581L31.97 575.466c-17.654 0-31.97-14.316-31.97-31.97l0-63.94c0-17.654 14.316-31.97 31.97-31.97l101.71 0c10.154-57.873 33.486-111.084 66.409-157.07l-72.873-72.873c-12.488-12.488-12.488-32.725 0-45.212l45.212-45.212c12.488-12.488 32.725-12.488 45.212 0l73.186 73.186c46.069-32.52 98.801-56.3 156.757-66.076L447.583 31.97C447.584 14.316 461.9 0 479.554 0l63.941 0c17.654 0 31.97 14.316 31.97 31.97l0 102.356c58.02 9.789 111.346 32.853 157.377 65.456l72.566-72.566c12.488-12.488 32.725-12.488 45.212 0l45.212 45.212c12.488 12.488 12.488 32.725 0 45.212l-72.362 72.361c32.859 46.031 56.082 99.434 65.897 157.581l101.71 0c17.654 0 31.97 14.316 31.97 31.97l0 63.94C1023.048 561.148 1008.732 575.465 991.078 575.465zM511.524 255.762c-141.251 0-255.762 114.511-255.762 255.762s114.511 255.762 255.762 255.762 255.762-114.511 255.762-255.762S652.775 255.762 511.524 255.762z"
-              fill="#2c2c2c" p-id="19103"></path>
-          </svg>
+        <svg
+          t="1699264352989"
+          class="iconx"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="19102"
+          width="30"
+          height="30"
+        >
+          <path
+            d="M991.078 575.465l-101.71 0c-10.154 57.873-33.486 111.084-66.409 157.07l72.873 72.873c12.488 12.488 12.488 32.725 0 45.212l-45.212 45.212c-12.488 12.488-32.725 12.488-45.212 0l-73.186-73.186c-46.069 32.52-98.801 56.3-156.757 66.076l0 102.356c0 17.654-14.316 31.97-31.97 31.97l-63.941 0c-17.654 0-31.97-14.316-31.97-31.97L447.584 888.722c-58.02-9.789-111.346-32.853-157.377-65.456l-72.566 72.566c-12.488 12.488-32.725 12.488-45.212 0l-45.212-45.212c-12.488-12.488-12.488-32.725 0-45.212l72.361-72.361c-32.859-46.031-56.082-99.434-65.897-157.581L31.97 575.466c-17.654 0-31.97-14.316-31.97-31.97l0-63.94c0-17.654 14.316-31.97 31.97-31.97l101.71 0c10.154-57.873 33.486-111.084 66.409-157.07l-72.873-72.873c-12.488-12.488-12.488-32.725 0-45.212l45.212-45.212c12.488-12.488 32.725-12.488 45.212 0l73.186 73.186c46.069-32.52 98.801-56.3 156.757-66.076L447.583 31.97C447.584 14.316 461.9 0 479.554 0l63.941 0c17.654 0 31.97 14.316 31.97 31.97l0 102.356c58.02 9.789 111.346 32.853 157.377 65.456l72.566-72.566c12.488-12.488 32.725-12.488 45.212 0l45.212 45.212c12.488 12.488 12.488 32.725 0 45.212l-72.362 72.361c32.859 46.031 56.082 99.434 65.897 157.581l101.71 0c17.654 0 31.97 14.316 31.97 31.97l0 63.94C1023.048 561.148 1008.732 575.465 991.078 575.465zM511.524 255.762c-141.251 0-255.762 114.511-255.762 255.762s114.511 255.762 255.762 255.762 255.762-114.511 255.762-255.762S652.775 255.762 511.524 255.762z"
+            fill="#2c2c2c"
+            p-id="19103"
+          ></path>
+        </svg>
       </router-link>
     </div>
     <div class="cen_one">
@@ -40,9 +50,10 @@
             >
           </div>
         </div>
-        <h2 class="cen_six">$0.00</h2>
+        <h2 class="cen_six">{{ positionnum.profit }}</h2>
         <p class="cen_seve">
-          <span>$0.00(-)</span>{{ $store.state.txt.hometime }}
+          <span>{{ positionnum.profitRate }}(-)</span
+          >{{ $store.state.txt.hometime }}
         </p>
         <div class="qhk">
           <div v-show="activeTab === 'tab1'">
@@ -221,6 +232,16 @@
             </div>
           </div>
         </div>
+        <div class="butlist">
+          <div
+            v-for="(item, index) in positionslist"
+            class="butlistflex flex jus"
+            :key="index"
+          >
+            <span>{{ item.symbol }}</span>
+            <span>{{ item.quantity }}</span>
+          </div>
+        </div>
       </div>
     </div>
     <Foot></Foot>
@@ -229,10 +250,14 @@
 
 <script setup>
 import Foot from "../components/foot.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import api from "../common/api";
 let flsclick = ref("0");
 const activeTab = ref("tab1");
+let userid = ref("");
+let token = ref("");
+let positionnum = ref({});
+let positionslist = ref([]);
 
 const changeTab = (tab) => {
   activeTab.value = tab;
@@ -249,6 +274,32 @@ let clickbuts = (str) => {
     flsclick.value = "1";
   }
 };
+onMounted(() => {
+  let useroken = localStorage.getItem("userData");
+  userid.value = useroken.userid;
+  token.value = useroken.token;
+  api
+    .profit({
+      userId: userid.value,
+      token: token.value,
+      // userId: "123456",
+      // token: "abcdef123456",
+    })
+    .then((res) => {
+      positionnum.value = res.data.data;
+    });
+
+  api
+    .positions({
+      userId: userid.value,
+      token: token.value,
+      // userId: "123456",
+      // token: "abcdef123456",
+    })
+    .then((res) => {
+      positionslist.value = res.data.data.positions;
+    });
+});
 </script>
 
 <style scoped>
@@ -499,19 +550,30 @@ let clickbuts = (str) => {
 
 .butcode {
   width: 90%;
-  margin: 1rem auto;
+  margin: 1rem auto 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px black solid;
   padding-bottom: 1rem;
-  margin-bottom: 14rem;
 }
 
 .butcode > p {
   font-size: 18px;
 }
-
+.butlist {
+  width: 90%;
+  margin: 1rem auto;
+  margin-bottom: 10rem;
+}
+.butlistflex {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+.butlistflex > span:nth-child(1) {
+  font-size: 1rem;
+  font-weight: 550;
+}
 .but_1 {
   width: 100%;
   text-align: center;

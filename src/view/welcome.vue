@@ -32,8 +32,6 @@
 export default {
   data() {
     return {
-      txt: "登录",
-      txts: "开始使用",
       currentIndex: 0,
       slideCount: 3,
       slides: [
@@ -57,7 +55,7 @@ export default {
     login() {
       this.$router.push("/login");
     },
-    // 导航到 Native 页面
+
     home() {
       this.$router.push("/native");
     },

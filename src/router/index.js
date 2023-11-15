@@ -150,6 +150,52 @@ const routes = [
     name: "walletpass",
     component: () => import("../view/walletpass.vue"),
   },
+  {
+    path: "/walletsetting",
+    name: "walletsetting",
+    component: () => import("../view/walletsetting.vue"),
+  },
+
+  {
+    path: "/exportkey",
+    name: "exportkey",
+    component: () => import("../view/exportkey.vue"),
+  },
+  {
+    path: "/moonkey",
+    name: "moonkey",
+    component: () => import("../view/moonkey.vue"),
+  },
+  {
+    path: "/exportkeys",
+    name: "exportkeys",
+    component: () => import("../view/exportkeys.vue"),
+  },
+  {
+    path: "/moonkeys",
+    name: "moonkeys",
+    component: () => import("../view/moonkeys.vue"),
+  },
+  {
+    path: "/changeusername",
+    name: "changeusername",
+    component: () => import("../view/changeusername.vue"),
+  },
+  {
+    path: "/choosepass",
+    name: "choosepass",
+    component: () => import("../view/choosepass.vue"),
+  },
+  {
+    path: "/changepasspass",
+    name: "changepasspass",
+    component: () => import("../view/changepasspass.vue"),
+  },
+  {
+    path: "/emailyzpass",
+    name: "emailyzpass",
+    component: () => import("../view/emailyzpass.vue"),
+  },
 ];
 
 const router = VueRouter.createRouter({

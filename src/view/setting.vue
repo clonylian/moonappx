@@ -32,7 +32,7 @@
       <router-link to="/Changeuser">
         {{ $store.state.txt.changeusername }}
       </router-link>
-      <router-link to="/Changepassword">{{
+      <router-link to="/choosepass">{{
         $store.state.txt.changepassword
       }}</router-link>
       <router-link to="/">
@@ -57,12 +57,12 @@ export default {
   },
   methods: {
     goForward() {
-      this.$router.push("/home"); // 向后导航一步
+      this.$router.push("/home");
     },
-    outuser(){
-      localStorage.clear()
-      this.$router.push("/"); // 向后导航一步
-    }
+    outuser() {
+      localStorage.clear();
+      this.$router.push("/");
+    },
   },
 };
 </script>

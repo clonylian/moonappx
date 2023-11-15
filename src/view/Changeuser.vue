@@ -121,6 +121,7 @@ export default {
     ynewuser() {
       const stringPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{4,22}$/;
       this.isnewyser = stringPattern.test(this.newuser);
+
       console.log(this.isnewyser);
       if (this.isnewyser) {
         this.dibubut = "1";
@@ -130,7 +131,7 @@ export default {
       this.showuser = "1";
     },
     goForward() {
-      this.$router.go(-1); // 向后导航一步
+      this.$router.go(-1);
     },
   },
 };

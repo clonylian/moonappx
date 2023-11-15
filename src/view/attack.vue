@@ -482,7 +482,7 @@ let changetabconfsix = (str) => {
   padding: 2rem 0;
 }
 .atttxt {
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
   font-size: 1.15rem;
   text-align: center;

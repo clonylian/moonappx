@@ -2,27 +2,47 @@
   <div class="ychangeyx">
     <div class="ychangeyxtop">
       <div class="ychangeyxtopti flex">
-        <svg @click="goForward()" style="width: 25px; height: 25px" class="clone" xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24">
+        <svg
+          @click="goForward()"
+          style="width: 25px; height: 25px"
+          class="clone"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
           <path
-            d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z">
-          </path>
+            d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
+          ></path>
         </svg>
         <h2>{{ $store.state.txt.changeemail }}</h2>
       </div>
       <span>{{ $store.state.txt.changeemailcon }}</span>
       <div class="ychangeyxbox">
-        <input class="ychangebinp" v-model="changeyx" :type="ychangepass == '0' ? 'text' : 'text'"
-          :placeholder="$store.state.txt.changeemailplacey" />
+        <input
+          class="ychangebinp"
+          v-model="changeyx"
+          :type="ychangepass == '0' ? 'text' : 'text'"
+          :placeholder="$store.state.txt.changeemailplacey"
+        />
       </div>
 
       <div class="ychangeyxbox">
-        <input class="ypasswinput" v-model="changepass" @input="sxinput()"
-          :type="ychangepass == '1' ? 'text' : 'password'" :placeholder="$store.state.txt.changeemailplacet" />
-        <span :class="ychangepass == '1' ? 'ychangeyxnone' : 'ychangeyxshow'" @click="changepassword('1')">{{
-          $store.state.txt.passwordshow }}</span>
-        <span :class="ychangepass == '1' ? 'ychangeyxshow' : 'ychangeyxnone'" @click="changepassword('0')">{{
-          $store.state.txt.passwordnone }}</span>
+        <input
+          class="ypasswinput"
+          v-model="changepass"
+          @input="sxinput()"
+          :type="ychangepass == '1' ? 'text' : 'password'"
+          :placeholder="$store.state.txt.changeemailplacet"
+        />
+        <span
+          :class="ychangepass == '1' ? 'ychangeyxnone' : 'ychangeyxshow'"
+          @click="changepassword('1')"
+          >{{ $store.state.txt.passwordshow }}</span
+        >
+        <span
+          :class="ychangepass == '1' ? 'ychangeyxshow' : 'ychangeyxnone'"
+          @click="changepassword('0')"
+          >{{ $store.state.txt.passwordnone }}</span
+        >
       </div>
     </div>
     <div class="ychangeyxbot">
@@ -57,7 +77,7 @@ export default {
       }
     },
     goForward() {
-      this.$router.go(-1); // 向后导航一步
+      this.$router.go(-1);
     },
   },
 };
@@ -100,7 +120,7 @@ export default {
   text-align: center;
 }
 
-.ychangeyxtop>span {
+.ychangeyxtop > span {
   display: block;
   width: 69%;
   line-height: 1.5;
@@ -132,7 +152,7 @@ export default {
   font-size: 1rem;
 }
 
-.ychangeyxbox>span {
+.ychangeyxbox > span {
   color: rgb(154, 221, 111);
   cursor: pointer;
 }
@@ -142,7 +162,7 @@ export default {
   margin: 0 auto;
 }
 
-.ychangeyxbot>button {
+.ychangeyxbot > button {
   display: block;
   text-align: center;
   width: 100%;
@@ -156,7 +176,7 @@ export default {
   margin-bottom: 0.75rem;
 }
 
-.ychangeyxbot>a {
+.ychangeyxbot > a {
   font-size: 0.9rem;
   text-decoration: underline;
   color: rgb(130, 137, 232);

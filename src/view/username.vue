@@ -1,15 +1,10 @@
 <template>
   <div>
     <div class="head">
-      <svg
-        @click="gologin"
-        class="clone"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
+      <svg @click="gologin" class="clone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path
-          d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
-        ></path>
+          d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z">
+        </path>
       </svg>
       <p class="head_one">{{ $store.state.txt.usertit }}</p>
       <p class="head_two">&nbsp &nbsp &nbsp &nbsp</p>
@@ -18,21 +13,11 @@
     <div class="reginput">
       <div class="regtwo">
         <div class="regp">
-          <input
-            type="text"
-            v-model="inputValue"
-            @input="checkInput"
-            :placeholder="$store.state.txt.userplace"
-          />
+          <input type="text" v-model="inputValue" @input="checkInput" :placeholder="$store.state.txt.userplace" />
         </div>
         <p class="regpone">{{ $store.state.txt.usercont }}<b></b></p>
       </div>
-      <div
-        :style="{ backgroundColor: buttonColor }"
-        @click="gopass"
-        :disabled="disableButton"
-        class="regthree"
-      >
+      <div :style="{ backgroundColor: buttonColor }" @click="gopass" :disabled="disableButton" class="regthree">
         {{ $store.state.txt.continue }}
       </div>
     </div>
@@ -40,48 +25,47 @@
 </template>
 
 <script>
-import api from '../common/api'
+import api from "../common/api";
 export default {
   data() {
     return {
-      reg: "创建用户名",
-      regs: "用户名将用作您推荐朋友的代码？",
-      moon: "户名应介于4至22个字符之间，仅由英文字母和数字组成",
-      jixu: "继续",
       showPassword: false,
       inputValue: "",
       buttonColor: "#b1b1b1",
       disableButton: true,
+      
     };
   },
   methods: {
     gopass() {
       if (this.inputValue == "") {
       } else {
-        localStorage.setItem('username', JSON.stringify(this.inputValue));
-        let username = JSON.parse(localStorage.getItem('username'));
-        let Rigister = JSON.parse(localStorage.getItem('Rigister'));
-        let moonpassword = JSON.parse(localStorage.getItem('moonpassword'));
-        console.log(this.token)
-        this.username = username
-        this.Rigister = Rigister
-        this.moonpassword = moonpassword
+        localStorage.setItem("username", JSON.stringify(this.inputValue));
+        let username = JSON.parse(localStorage.getItem("username"));
+        let Rigister = JSON.parse(localStorage.getItem("Rigister"));
+        let moonpassword = JSON.parse(localStorage.getItem("moonpassword"));
+        // console.log(this.token);
+        this.username = username;
+        this.Rigister = Rigister;
+        this.moonpassword = moonpassword;
         // console.log(this.inputValue)
         api.register({
-          "email": this.Rigister,
-          "password": this.moonpassword,
-          "numericPassword": "123456",
-          "username": this.username
-        }).then(res => {
-          localStorage.removeItem('username');
-          localStorage.removeItem('Rigister');
-          localStorage.removeItem('moonpassword');
-          this.token = res.data.data.token
-          console.log(this.token)
-          localStorage.setItem('TOKEN', JSON.stringify(this.token));
-          this.$router.push("/recommend");
-        })
-
+            email: this.Rigister,
+            password: this.moonpassword,
+            numericPassword: "123456",
+            username: this.username,
+          })
+          .then((res) => {
+            localStorage.removeItem("username");
+            localStorage.removeItem("Rigister");
+            localStorage.removeItem("moonpassword");
+            // console.log()
+            // this.token = res.data.data.token;
+            // console.log(res.data.data.token)
+            // console.log(this.token);
+            localStorage.setItem("userData", JSON.stringify(res.data.data));
+            this.$router.push("/recommend");
+          });
       }
     },
     gologin() {
@@ -106,6 +90,7 @@ export default {
   width: 25px;
   height: 25px;
   margin: 0rem 0 0 1rem;
+  cursor: pointer;
 }
 
 .head {
@@ -144,7 +129,7 @@ export default {
   border-radius: 1rem;
 }
 
-.regp > input {
+.regp>input {
   width: 100%;
   border: none;
   outline: none;

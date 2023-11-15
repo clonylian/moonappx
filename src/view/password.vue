@@ -14,7 +14,7 @@
               d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"
             ></path>
           </svg>
-          <h2>创建您的月球密码</h2>
+          <h2>{{ $store.state.txt.createpassword }}</h2>
         </div>
         <span>{{ store.state.txt.cjpassword }}</span>
         <div class="ypasswordinp">
@@ -87,7 +87,6 @@
 </template>
 
 <script setup>
-
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -114,8 +113,6 @@ let checkpassword = () => {
   const containsNumber = /\d/.test(password.value);
   const hasValidLength = password.value.length >= 8;
 
-
-
   if (containsUpperCase) {
     listy.value = "1";
   } else {
@@ -136,6 +133,7 @@ let checkpassword = () => {
   } else {
     listf.value = "0";
   }
+  yjxpass()
 };
 let yjxpass = () => {
   let ypassbut;
@@ -152,9 +150,9 @@ let yjxpass = () => {
   }
   if (password.value == passwordy.value && ypassbut) {
     listbut.value = "1";
-    localStorage.setItem('moonpassword', JSON.stringify(passwordy.value));
-    // console.log(passwordy.value) 
-   
+    localStorage.setItem("moonpassword", JSON.stringify(passwordy.value));
+    // console.log(passwordy.value)
+
     // console.log(listbut.value);
   } else {
     listbut.value = "0";
@@ -170,7 +168,7 @@ let returnfh = () => {
   align-items: center;
   margin-bottom: 1rem;
 }
-.ypasswordti span {
+.ypasswordti svg {
   height: 2.5rem;
   width: 2.5rem;
   line-height: 1.75;

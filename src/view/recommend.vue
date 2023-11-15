@@ -40,19 +40,16 @@ import api from "../common/api";
 export default {
   data() {
     return {
-      tjm: "您有推荐码吗?",
-      tjianm: "获取推荐码并获得25美元的奖励以支付未来的费用",
-      tjiao: "提交代码",
-      tiaog: "跳过",
+      recommendationCode: "",
       list: [
         {
           id: "11",
-          name: "钱包名称1",
+          name: "walletusername1",
           walletAddress: "0x1111111111111111111111111111",
         },
         {
           id: "12",
-          name: "钱包名称2",
+          name: "walletusername2",
           walletAddress: "0x22222222222222278789789",
         },
       ],
@@ -105,6 +102,7 @@ export default {
   width: 30px;
   height: 30px;
   fill: white;
+  cursor: pointer;
 }
 
 .cenxd {

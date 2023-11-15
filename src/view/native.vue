@@ -43,18 +43,15 @@
 <script>
 export default {
   data() {
-    return {
-      title: "获取原生App",
-    };
+    return {};
   },
   methods: {
     gorig() {
-        if(localStorage.getItem('TOKEN') !== null){
-          this.$router.push("/home");
-        }else{
-          this.$router.push('./Register')
-        }
-     
+      if (localStorage.getItem("TOKEN") !== null) {
+        this.$router.push("/home");
+      } else {
+        this.$router.push("./Register");
+      }
     },
   },
 };
